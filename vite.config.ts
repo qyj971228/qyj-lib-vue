@@ -2,9 +2,11 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
+import { createStyleImportPlugin } from 'vite-plugin-style-import'
 export default defineConfig({
   build: {
     outDir: 'es',
+    cssCodeSplit: true,
     rollupOptions: {
       external: ['vue'],
       input: ['src/lib/index.ts'],
@@ -30,5 +32,16 @@ export default defineConfig({
       outputDir: ['./dist'],
       tsConfigFilePath: './tsconfig.json'
     }),
+    createStyleImportPlugin({
+      libs: [
+        {
+          libraryName: 'qyj-lib-vue',
+          esModule: true,
+          resolveStyle: (name) => {
+            return `qyj-lib-vue/dist/${name}.css`
+          },
+        },
+      ],
+    })
   ]
 })
