@@ -1,5 +1,5 @@
 import { defineComponent, type PropType } from "vue";
-import style from './style/Hi.module.css'
+import './style/Hi.scss'
 
 export default defineComponent({
   props: {
@@ -7,7 +7,7 @@ export default defineComponent({
   },
   setup(props) {
     return () => (
-      <div className={style.hi}>hi{props.msg}</div>
+      <div className='hi'>hi{props.msg}</div>
     )
   }
 })
