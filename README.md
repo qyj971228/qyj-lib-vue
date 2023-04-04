@@ -29,6 +29,6 @@
 ```
 ### Global import(universal)
 
-`import '<rootDir>/dist/style.css`
+`import 'qyj-lib-vue/dist/style.css`
 
 #### TODO: Vitest; husky & commitlint; storybook
