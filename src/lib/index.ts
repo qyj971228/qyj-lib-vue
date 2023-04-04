@@ -1,4 +1,4 @@
-import Hello from './Hello/Hello'
-import Hi from './Hi/Hi'
+import Hi from "./hi/hi"
+import Hello from "./hello/hello"
 
 export { Hello, Hi }

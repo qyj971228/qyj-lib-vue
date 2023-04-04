@@ -6,7 +6,6 @@ import { createStyleImportPlugin } from 'vite-plugin-style-import'
 export default defineConfig({
   build: {
     outDir: 'es',
-    cssCodeSplit: true,
     rollupOptions: {
       external: ['vue'],
       input: ['src/lib/index.ts'],
@@ -38,7 +37,7 @@ export default defineConfig({
           libraryName: 'qyj-lib-vue',
           esModule: true,
           resolveStyle: (name) => {
-            return `qyj-lib-vue/dist/${name}.css`
+            return `qyj-lib-vue/dist/${name}/style/${name}.css`
           },
         },
       ],
