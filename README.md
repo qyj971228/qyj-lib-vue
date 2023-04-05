@@ -31,4 +31,4 @@
 
 `import 'qyj-lib-vue/dist/style.css`
 
-#### TODO: Vitest; husky & commitlint; storybook
+#### TODO: Vitest; storybook
