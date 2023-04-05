@@ -1,5 +1,5 @@
 import { defineComponent, type PropType } from "vue";
-import './style/Hi.scss'
+import './index.css'
 
 export default defineComponent({
   props: {

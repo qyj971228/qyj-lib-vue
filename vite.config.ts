@@ -37,7 +37,7 @@ export default defineConfig({
           libraryName: 'qyj-lib-vue',
           esModule: true,
           resolveStyle: (name) => {
-            return `qyj-lib-vue/dist/${name}/style/${name}.css`
+            return `qyj-lib-vue/dist/${name}/index.css`
           },
         },
       ],
