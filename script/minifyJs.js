@@ -1,3 +1,7 @@
+/**
+ * compress vite product(.js)
+ */
+
 /* eslint-disable no-undef */
 'use strict'
 

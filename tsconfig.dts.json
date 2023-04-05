@@ -1,0 +1,7 @@
+// .d.ts build config
+{
+  "include": [
+    "src/lib/*/index.tsx",
+    "src/lib/index.ts"
+  ],
+}

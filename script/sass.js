@@ -1,3 +1,7 @@
+/**
+ * sass(.scss) build to css & compress
+ */
+
 /* eslint-disable no-undef */
 'use strict'
 

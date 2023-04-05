@@ -27,9 +27,8 @@ export default defineConfig({
     vue(),
     vueJsxPlugin(),
     dts({
-      entryRoot: './src/lib',
-      outputDir: ['./dist'],
-      tsConfigFilePath: './tsconfig.json'
+      outputDir: ['dist'],
+      tsConfigFilePath: './tsconfig.dts.json'
     }),
     createStyleImportPlugin({
       libs: [

@@ -7,7 +7,7 @@ export default defineComponent({
   },
   setup(props) {
     return () => (
-      <div className='hi'>hi{props.msg}</div>
+      <div class='hi'>hi{props.msg}</div>
     )
   }
 })
