@@ -1,8 +1,3 @@
-/**
- * sass(.scss) build to css & compress
- */
-
-/* eslint-disable no-undef */
 'use strict'
 
 const fs = require('fs')
@@ -17,18 +12,18 @@ function sassCompile(path) {
 }
 
 function pathTransform(path) {
-  return path.replace(...MAP_DIRECTORIES).substring(0, path.length - 7) + 'css' // windows file
+  switch (process.platform) {
+    case 'darwin':
+      return path.replace(...MAP_DIRECTORIES).substring(0, path.length - 4) + 'css' // mac
+    case 'win32':
+      return path.replace(...MAP_DIRECTORIES).substring(0, path.length - 7) + 'css' // windows
+  }
 }
 
 function fileWrite(path) {
-  fs.writeFileSync(
-    pathTransform(path),
-    sassCompile(path),
-    'utf-8',
-    function (error) {
-      console.log(error)
-    }
-  )
+  fs.writeFileSync(pathTransform(path), sassCompile(path), 'utf-8', function (error) {
+    console.log(error)
+  })
 }
 
 function readFileList(currentPath) {
