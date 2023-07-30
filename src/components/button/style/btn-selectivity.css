@@ -1,0 +1,11 @@
+.qyj-btn-round {
+  border-radius: var(--app-border-radius-round);
+}
+
+.qyj-btn-dashed {
+  border-style: dashed;
+}
+
+.qyj-btn-ghost {
+  background-color: transparent;
+}

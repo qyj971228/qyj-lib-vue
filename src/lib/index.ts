@@ -1,4 +1,3 @@
-import Hi from "./hi"
-import Hello from "./hello"
+import Button from "../components/button/index.vue"
 
-export { Hello, Hi }
+export { Button }

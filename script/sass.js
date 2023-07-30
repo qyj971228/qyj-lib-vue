@@ -3,8 +3,8 @@
 const fs = require('fs')
 const sass = require('sass')
 const path = require('path')
-const ENTRY_PATH = path.join(__dirname, '../src/lib') // 入口
-const MAP_DIRECTORIES = ['\\src\\lib', '\\dist'] // 映射
+const ENTRY_PATH = path.join(__dirname, '../src') // 入口
+const MAP_DIRECTORIES = ['\\src', '\\dist'] // 映射
 const SASS_FILE_NAME = 'index.scss'
 
 function sassCompile(path) {

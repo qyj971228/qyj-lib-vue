@@ -10,9 +10,10 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:clean && npm run build:ts && npm run build:sass && npm run minifyjs",
+    "build": "npm run build:clean && npm run build:ts",
     "build:clean": "rimraf ./dist",
     "build:ts": "run-p type-check build-only",
+    "build:ts-without type-check": "run-p build-only",
     "build:sass": "node script/sass.js",
     "sass:watch": "node-sass --watch ./src -o ./src --output-style expanded",
     "sass:init": "node-sass ./src -o ./src --output-style expanded",

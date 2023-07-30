@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import { Hello } from 'qyj-lib-vue'
-  import { Hi } from 'qyj-lib-vue'
+import '../dist/style.css'
+  import Button from './components/button/index.vue';
+  // import { Button } from '../dist/lib/index'
 </script>
 
 <template>
   <div>
-    <Hello style="color: red;"></Hello>
-    <Hi :msg="'123'"></Hi>
+    <Button size="m" dashed>123</Button>
   </div>
 </template>
