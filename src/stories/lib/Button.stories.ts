@@ -8,7 +8,8 @@ const meta: Meta<typeof Button> = {
   tags: ['autodocs'],
   argTypes: {
     size: { control: 'select', options: ['s', 'm', 'l'] },
-  },
+    kind: { control: 'select', options: ['normal', 'warn', 'error'] },
+  }
 }
 
 export default meta

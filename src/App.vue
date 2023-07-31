@@ -6,6 +6,6 @@ import '../dist/style.css'
 
 <template>
   <div>
-    <Button size="m" dashed>123</Button>
+    <Button size="m" dashed weight="primary" kind="error">123</Button>
   </div>
 </template>

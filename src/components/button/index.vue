@@ -1,37 +1,16 @@
 <script setup lang="ts">
 
-import { toRefs, watch } from 'vue'
+import { ref, toRefs, watch } from 'vue'
 import ButtonClass from './class/ButtonClass'
-import { DASHED, GHOST, PREFIX, ROUND } from './type/props'
-
-type ButtonWeight = 'primary'
-type ButtonKind = 'normal' | 'warn' | 'error'
-type ButtonSize = 's' | 'm' | 'l'
-
-type ButtonProps = {
-  kind?: ButtonKind
-  size?: ButtonSize
-  round?: boolean
-  dashed?: boolean
-  ghost?: boolean
-  weight?: ButtonWeight
-}
+import type { ButtonProps } from './type/props'
 
 const props = defineProps<ButtonProps>()
-
-const { kind, size, round, dashed, ghost, weight } = toRefs(props)
-
-let className = ''
+const refs = toRefs<ButtonProps>(props)
+const className = ref<string>('')
 
 watch(props, () => {
-  const button = new ButtonClass(PREFIX)
-  kind?.value && button.setProp(kind.value)
-  size?.value && button.setProp(size.value)
-  round.value && button.setProp(ROUND)
-  dashed.value && button.setProp(DASHED)
-  ghost.value && button.setProp(GHOST)
-  weight?.value && button.setButtonWeight(weight.value)
-  className = button.getClassName()
+  const button = new ButtonClass(refs)
+  className.value = button.getClassName()
 }, {
   immediate: true
 })
