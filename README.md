@@ -18,7 +18,7 @@
             libraryName: 'qyj-lib-vue',
             esModule: true,
             resolveStyle: (name) => {
-              return `qyj-lib-vue/dist/${name}/index.css`
+              return `qyj-lib-vue/dist/components/${name}/index.css`
             },
           },
         ],
