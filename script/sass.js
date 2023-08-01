@@ -8,7 +8,7 @@ const MAP_DIRECTORIES = ['\\src', '\\dist'] // 映射
 const SASS_FILE_NAME = 'index.scss'
 
 function sassCompile(path) {
-  return sass.compile(path, { style: 'compressed' }).css
+  return sass.compile(path, { style: 'expanded' }).css
 }
 
 function pathTransform(path) {
@@ -16,7 +16,7 @@ function pathTransform(path) {
     case 'darwin':
       return path.replace(...MAP_DIRECTORIES).substring(0, path.length - 4) + 'css' // mac
     case 'win32':
-      return path.replace(...MAP_DIRECTORIES).substring(0, path.length - 7) + 'css' // windows
+      return path.replace(...MAP_DIRECTORIES).substring(0, path.length - 3) + 'css' // windows
   }
 }
 

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import '../dist/style.css'
-  import Button from './components/button/index.vue';
-  // import { Button } from '../dist/lib/index'
+import { Button } from 'qyj-lib-vue'
 </script>
 
 <template>
