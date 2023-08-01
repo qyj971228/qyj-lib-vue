@@ -20,7 +20,8 @@ module.exports = {
         'test', // Adds or modifies tests. 测试用例，包括单元测试、集成测试等
         'ci', // 主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交
         'build', // 主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交
-        'other'
+        'other',
+        'sb', // storybook
       ]
     ]
   }
