@@ -1,16 +1,20 @@
 <script setup lang="ts">
-
-import { ref, toRefs, watch } from 'vue'
+import { ref, toRefs, watch, useAttrs } from 'vue'
 import ButtonClass from './class/ButtonClass'
 import type { ButtonProps } from './type/props'
 
+defineOptions({ inheritAttrs: false })
+
+const attrs = useAttrs()
 const props = defineProps<ButtonProps>()
-const refs = toRefs<ButtonProps>(props)
+const propsRefs = toRefs<ButtonProps>(props)
+
 const className = ref<string>('')
 
 watch(props, () => {
-  const button = new ButtonClass(refs)
-  className.value = button.getClassName()
+  const attrClass = attrs.class as string
+  const button = new ButtonClass(propsRefs)
+  className.value = button.getClassName(attrClass)
 }, {
   immediate: true
 })
