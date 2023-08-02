@@ -22,6 +22,7 @@ type ButtonProps = Partial<{
   dashed: boolean
   ghost: boolean
   weight: Weight
+  disabled: boolean
 }>
 
 export {

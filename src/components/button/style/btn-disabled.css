@@ -1,0 +1,6 @@
+.qyj-btn:disabled {
+  color: var(--app-color-disabled-color);
+  border-color: var(--app-color-disabled-border-color);
+  background-color: var(--app-color-disabled-background-color);
+  cursor: no-drop;
+}

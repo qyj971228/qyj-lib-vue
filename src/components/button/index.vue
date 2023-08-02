@@ -12,20 +12,19 @@ const propsRefs = toRefs<ButtonProps>(props)
 const className = ref<string>('')
 
 watch(props, () => {
-  const attrClass = attrs.class as string
   const button = new ButtonClass(propsRefs)
-  className.value = button.getClassName(attrClass)
+  className.value = button.getClassName(attrs.class as string)
 }, {
   immediate: true
 })
 
 </script>
 <template>
-  <button :class="className">
+  <button :class="className" v-bind="attrs">
     <slot>Button</slot>
   </button>
 </template>
 
 <style>
 @import './index.css';
-</style>
+</style> 

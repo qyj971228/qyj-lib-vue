@@ -6,4 +6,5 @@
   border-style: var(--app-border-style);
   border-radius: var(--app-border-radius);
   border-color: var(--app-border-color);
+  cursor: pointer;
 }
