@@ -3,7 +3,7 @@ const KIND = ['normal', 'warn', 'error'] as const
 const SIZE = ['s', 'm', 'l'] as const
 
 const WEIGHT_EFFECT = ['dashed', 'ghost'] as const // 被weight影响的
-const WEIGHT = ['primary'] as const
+const WEIGHT = ['primary', 'text', 'link'] as const
 
 const ROUND = 'round'
 const DASHED = 'dashed'

@@ -7,7 +7,8 @@
   border-radius: var(--app-border-radius);
   border-color: var(--app-border-color);
   cursor: pointer;
-  transition: all .2s;
+  transition: all .1s;
+  outline: 0px solid #fff;
 }
 
 .qyj-btn:hover {

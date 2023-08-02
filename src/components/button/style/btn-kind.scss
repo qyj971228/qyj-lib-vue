@@ -90,3 +90,89 @@
     var(--app-color-error-light-70)
   );
 }
+
+@mixin text-kind($base, $text, $background) {
+  color: $text;
+  border-color: transparent;
+  background-color: transparent;
+  &:hover {
+    color: $text;
+    border-color: transparent;
+    background-color: $background;
+  }
+  &:focus {
+    color: $base;
+    border-color: transparent;
+    background-color: $background;
+  }
+  &:active {
+    color: $base;
+    border-color: transparent;
+    background-color: $background;
+  }
+}
+
+.qyj-btn-text-normal {
+  @include text-kind(
+    var(--app-color-primary),
+    var(--app-color-primary-light-60),
+    var(--app-color-primary-light-97)
+  );
+}
+
+.qyj-btn-text-warn {
+  @include text-kind(
+    var(--app-color-warn),
+    var(--app-color-warn-light-60),
+    var(--app-color-warn-light-97)
+  );
+}
+
+.qyj-btn-text-error {
+  @include text-kind(
+    var(--app-color-error),
+    var(--app-color-error-light-60),
+    var(--app-color-error-light-97)
+  );
+}
+
+@mixin link-kind($base, $text) {
+  color: $text;
+  border-color: transparent;
+  &:hover {
+    color: $text;
+    border-color: transparent;
+    background-color: transparent;
+  }
+  &:focus {
+    color: $base;
+    border-color: transparent;
+    background-color: transparent;
+  }
+  &:active {
+    color: $base;
+    border-color: transparent;
+    background-color: transparent;
+  }
+}
+
+.qyj-btn-link-normal {
+  @include link-kind(
+    var(--app-color-primary),
+    var(--app-color-primary-light-60)
+  );
+}
+
+.qyj-btn-link-warn {
+  @include link-kind(
+    var(--app-color-warn),
+    var(--app-color-warn-light-60)
+  );
+}
+
+.qyj-btn-link-error {
+  @include link-kind(
+    var(--app-color-error),
+    var(--app-color-error-light-60)
+  );
+}

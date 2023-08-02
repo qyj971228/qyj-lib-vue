@@ -2,7 +2,7 @@ declare const PREFIX = "qyj-btn";
 declare const KIND: readonly ["normal", "warn", "error"];
 declare const SIZE: readonly ["s", "m", "l"];
 declare const WEIGHT_EFFECT: readonly ["dashed", "ghost"];
-declare const WEIGHT: readonly ["primary"];
+declare const WEIGHT: readonly ["primary", "text", "link"];
 declare const ROUND = "round";
 declare const DASHED = "dashed";
 declare const GHOST = "ghost";

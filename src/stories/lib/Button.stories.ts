@@ -10,7 +10,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     size: { control: 'select', options: ['s', 'm', 'l', null] },
     kind: { control: 'select', options: ['normal', 'warn', 'error', null] },
-    weight: { control: 'select', options: ['primary', null] },
+    weight: { control: 'select', options: ['primary', 'text', 'link', null] },
     ghost: { control: 'boolean' },
     dashed: { control: 'boolean' },
     round: { control: 'boolean' },

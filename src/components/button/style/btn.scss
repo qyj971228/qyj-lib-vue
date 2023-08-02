@@ -7,7 +7,8 @@
   border-radius: var(--app-border-radius);
   border-color: var(--app-border-color);
   cursor: pointer;
-  transition: all .2s;
+  transition: all .1s;
+  outline: 0px solid #fff;
   &:hover {
     color: var(--app-color-primary-light-60);
     border-color: var(--app-color-primary-light-70);
