@@ -1,10 +1,23 @@
+@charset "UTF-8";
 :root {
-  --app-color-primary: hsl(215, 100%, 54%);
-  --app-color-primary-light-10: hsl(215, 100%, 64%);
-  --app-color-warn: hsl(52, 100%, 50%);
-  --app-color-warn-light-10: hsl(52, 100%, 64%);
-  --app-color-error: hsl(0, 88%, 58%);
-  --app-color-error-light-10: hsl(0, 88%, 68%);
+  /*
+    无后缀-选中色
+    60-字体色
+    70-边框色
+    97-背景色
+  */
+  --app-color-primary: hsl(215, 100%, 50%);
+  --app-color-primary-light-60: hsl(215, 100%, 60%);
+  --app-color-primary-light-70: hsl(215, 100%, 70%);
+  --app-color-primary-light-97: hsl(215, 100%, 97%);
+  --app-color-warn: hsl(43, 86%, 50%);
+  --app-color-warn-light-60: hsl(43, 86%, 60%);
+  --app-color-warn-light-70: hsl(43, 86%, 70%);
+  --app-color-warn-light-97: hsl(43, 86%, 97%);
+  --app-color-error: hsl(0, 88%, 50%);
+  --app-color-error-light-60: hsl(0, 88%, 60%);
+  --app-color-error-light-70: hsl(0, 88%, 70%);
+  --app-color-error-light-97: hsl(0, 88%, 97%);
   --app-color-disabled-color: #888;
   --app-color-disabled-border-color: #888;
   --app-color-disabled-background-color: #eee;
@@ -12,9 +25,9 @@
   --app-size-m: 1;
   --app-size-l: 1.2;
   --app-font-size: 16px;
-  --app-font-color: #000;
+  --app-font-color: hsl(0, 0%, 25%);
   --app-background-color: #FFF;
-  --app-border-color: #000;
+  --app-border-color: hsl(0, 0%, 50%);
   --app-border-width: 1px;
   --app-border-style: solid;
   --app-border-radius: 4px;

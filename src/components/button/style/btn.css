@@ -1,5 +1,5 @@
 .qyj-btn {
-  color: var(--app-color);
+  color: var(--app-font-color);
   background-color: var(--app-background-color);
   font-size: var(--app-font-size);
   border-width: var(--app-border-width);
@@ -7,4 +7,15 @@
   border-radius: var(--app-border-radius);
   border-color: var(--app-border-color);
   cursor: pointer;
+  transition: all .2s;
+}
+
+.qyj-btn:hover {
+  color: var(--app-color-primary-light-60);
+  border-color: var(--app-color-primary-light-70);
+}
+
+.qyj-btn:focus {
+  color: var(--app-color-primary-light-60);
+  border-color: var(--app-color-primary-light-70);
 }
