@@ -1,11 +1,12 @@
 .qyj-btn-s {
-  font-size: calc(var(--app-font-size) * var(--app-size-s));
+  padding: 2px 6px;
 }
 
 .qyj-btn-m {
-  font-size: calc(var(--app-font-size) * var(--app-size-m));
+  padding: 4px 12px;
 }
 
 .qyj-btn-l {
-  font-size: calc(var(--app-font-size) * var(--app-size-l));
+  padding: 6px 16px;
+  font-size: 18px;
 }
