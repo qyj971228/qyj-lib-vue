@@ -149,139 +149,163 @@
   color: var(--app-color-primary-light-60);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-text-normal:hover {
   color: var(--app-color-primary-light-60);
   border-color: transparent;
   background-color: var(--app-color-primary-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-text-normal:focus {
   color: var(--app-color-primary);
   border-color: transparent;
   background-color: var(--app-color-primary-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-text-normal:active {
   color: var(--app-color-primary);
   border-color: transparent;
   background-color: var(--app-color-primary-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-text-warn {
   color: var(--app-color-warn-light-60);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-text-warn:hover {
   color: var(--app-color-warn-light-60);
   border-color: transparent;
   background-color: var(--app-color-warn-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-text-warn:focus {
   color: var(--app-color-warn);
   border-color: transparent;
   background-color: var(--app-color-warn-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-text-warn:active {
   color: var(--app-color-warn);
   border-color: transparent;
   background-color: var(--app-color-warn-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-text-error {
   color: var(--app-color-error-light-60);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-text-error:hover {
   color: var(--app-color-error-light-60);
   border-color: transparent;
   background-color: var(--app-color-error-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-text-error:focus {
   color: var(--app-color-error);
   border-color: transparent;
   background-color: var(--app-color-error-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-text-error:active {
   color: var(--app-color-error);
   border-color: transparent;
   background-color: var(--app-color-error-light-97);
+  box-shadow: none;
 }
 
 .qyj-btn-link-normal {
   color: var(--app-color-primary-light-60);
   border-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-normal:hover {
   color: var(--app-color-primary-light-60);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-normal:focus {
   color: var(--app-color-primary);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-normal:active {
   color: var(--app-color-primary);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-warn {
   color: var(--app-color-warn-light-60);
   border-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-warn:hover {
   color: var(--app-color-warn-light-60);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-warn:focus {
   color: var(--app-color-warn);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-warn:active {
   color: var(--app-color-warn);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-error {
   color: var(--app-color-error-light-60);
   border-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-error:hover {
   color: var(--app-color-error-light-60);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-error:focus {
   color: var(--app-color-error);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }
 
 .qyj-btn-link-error:active {
   color: var(--app-color-error);
   border-color: transparent;
   background-color: transparent;
+  box-shadow: none;
 }

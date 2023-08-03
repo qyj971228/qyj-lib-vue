@@ -9,6 +9,7 @@
   cursor: pointer;
   transition: all .1s;
   outline: 0px solid #fff;
+  box-shadow: var(--app-box-shadow);
 }
 
 .qyj-btn:hover {
