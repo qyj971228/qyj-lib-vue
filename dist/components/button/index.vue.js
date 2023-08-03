@@ -14,12 +14,16 @@ const k = /* @__PURE__ */ r({
   },
   setup(n) {
     const t = n, o = l(), a = c(t), s = p("");
-    return u(t, () => {
-      const e = new _(a);
-      s.value = e.getClassName(o.class);
-    }, {
-      immediate: !0
-    }), (e, g) => (d(), i("button", m({ class: s.value }, f(o)), [
+    return u(
+      t,
+      () => {
+        const e = new _(a);
+        s.value = e.getClassName(o.class);
+      },
+      {
+        immediate: !0
+      }
+    ), (e, g) => (d(), i("button", m({ class: s.value }, f(o)), [
       B(e.$slots, "default", {}, () => [
         h("Button")
       ])

@@ -3,6 +3,7 @@ import { ref, toRefs, watch, useAttrs } from 'vue'
 import ButtonClass from './class/ButtonClass'
 import type { ButtonProps } from './type/props'
 
+// eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
 
 const attrs = useAttrs()
@@ -11,13 +12,16 @@ const propsRefs = toRefs<ButtonProps>(props)
 
 const className = ref<string>('')
 
-watch(props, () => {
-  const button = new ButtonClass(propsRefs)
-  className.value = button.getClassName(attrs.class as string)
-}, {
-  immediate: true
-})
-
+watch(
+  props,
+  () => {
+    const button = new ButtonClass(propsRefs)
+    className.value = button.getClassName(attrs.class as string)
+  },
+  {
+    immediate: true
+  }
+)
 </script>
 <template>
   <button :class="className" v-bind="attrs">
@@ -27,4 +31,4 @@ watch(props, () => {
 
 <style>
 @import './index.css';
-</style> 
+</style>

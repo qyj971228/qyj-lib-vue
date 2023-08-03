@@ -11,9 +11,9 @@ const GHOST = 'ghost'
 
 const BOOLEAN_PROP = [ROUND, DASHED, GHOST] // 布尔型
 
-type Kind = (typeof KIND[number]) | undefined
-type Size = typeof SIZE[number]
-type Weight = typeof WEIGHT[number]
+type Kind = (typeof KIND)[number] | undefined
+type Size = (typeof SIZE)[number]
+type Weight = (typeof WEIGHT)[number]
 
 type ButtonProps = Partial<{
   kind: Kind
@@ -25,18 +25,6 @@ type ButtonProps = Partial<{
   disabled: boolean
 }>
 
-export {
-  PREFIX,
-  KIND,
-  WEIGHT_EFFECT,
-  ROUND,
-  DASHED,
-  GHOST,
-  BOOLEAN_PROP,
-}
+export { PREFIX, KIND, WEIGHT_EFFECT, ROUND, DASHED, GHOST, BOOLEAN_PROP }
 
-export type {
-  Kind,
-  Weight,
-  ButtonProps
-}
+export type { Kind, Weight, ButtonProps }
