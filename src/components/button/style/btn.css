@@ -15,10 +15,10 @@
 
 .qyj-btn:hover {
   color: var(--app-color-primary-light-60);
-  border-color: var(--app-color-primary-light-70);
+  border-color: var(--app-color-primary-light-65);
 }
 
 .qyj-btn:focus {
   color: var(--app-color-primary-light-60);
-  border-color: var(--app-color-primary-light-70);
+  border-color: var(--app-color-primary-light-65);
 }
