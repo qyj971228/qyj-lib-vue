@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Button } from 'qyj-lib-vue'
-import { Dropdown, DropdownItem } from './lib';
+import { Dropdown, DropdownItem } from './lib'
 </script>
 
 <template>
-  <div style="text-align: center; height: 100px;">
+  <div style="text-align: center; height: 100px">
     <Dropdown>
       <Button weight="primary">123</Button>
       <template #dropdown>

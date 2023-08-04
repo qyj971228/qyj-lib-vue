@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, useAttrs, type CSSProperties, onMounted, onBeforeUnmount } from 'vue';
+import { computed, ref, useAttrs, type CSSProperties, onMounted, onBeforeUnmount } from 'vue'
 
 // eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
@@ -15,18 +15,18 @@ const left = ref(0)
 const styles = computed(() => {
   return {
     top: top.value + 'px',
-    left: left.value + 'px',
+    left: left.value + 'px'
   } as CSSProperties
 })
 
 function getPosition() {
   bottomLeft()
-} 
+}
 
 function bottomLeft() {
   const x = triggerRef.value?.getBoundingClientRect().left ?? 0
   const y = triggerRef.value?.getBoundingClientRect().bottom ?? 0
-  top.value = y 
+  top.value = y
   left.value = x
 }
 
@@ -75,8 +75,9 @@ onBeforeUnmount(() => {
   z-index: 1000;
   padding: 5px;
   border-radius: 6px;
-  background-color: rgba(246, 246, 246, 0.60);
-  box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.25), 0px 0px 1.5px 0px rgba(0, 0, 0, 0.30), 0px 0px 1px 0px rgba(0, 0, 0, 0.40);
+  background-color: rgba(246, 246, 246, 0.6);
+  box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.25), 0px 0px 1.5px 0px rgba(0, 0, 0, 0.3),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(40px);
 }
 </style>
