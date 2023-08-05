@@ -1,7 +1,8 @@
 #### 目录
+
 ```
 src
-  └─lib 
+  └─lib
     │  index.ts 入口
     └─hello
         │  index.css 样式产物

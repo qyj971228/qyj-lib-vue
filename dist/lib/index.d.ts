@@ -1,3 +1,4 @@
 import Button from '../components/button/index.vue';
-import DropDown from '../components/dropdown/index.vue';
-export { Button, DropDown };
+import Dropdown from '../components/dropdown/index.vue';
+import DropdownItem from '../components/dropdown/DropdownItem.vue';
+export { Button, Dropdown, DropdownItem };

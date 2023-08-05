@@ -24,7 +24,10 @@ watch(
 )
 </script>
 <template>
-  <button :class="className" v-bind="attrs">
+  <button
+    :class="className"
+    v-bind="attrs"
+  >
     <slot>Button</slot>
   </button>
 </template>

@@ -1,13 +1,5 @@
 // .d.ts build config
 {
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-  ],
-  "exclude": [
-    "src/stories/**/*.ts",
-    "src/stories/**/*.tsx",
-    "src/stories/**/*.vue",
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["src/stories/**/*.ts", "src/stories/**/*.tsx", "src/stories/**/*.vue"]
 }

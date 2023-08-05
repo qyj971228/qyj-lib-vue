@@ -37,9 +37,9 @@ export default defineConfig({
           esModule: true,
           resolveStyle: (name) => {
             return `qyj-lib-vue/dist/components/${name}/index.css`
-          },
-        },
-      ],
+          }
+        }
+      ]
     })
   ]
 })

@@ -1,16 +1,7 @@
-import { openBlock as o, createBlock as r, Teleport as t, createElementVNode as n, renderSlot as c, createTextVNode as d } from "vue";
-import l from "../../_virtual/_plugin-vue_export-helper.js";
-const a = {};
-function f(e, s) {
-  return o(), r(t, { to: "body" }, [
-    n("div", null, [
-      c(e.$slots, "default", {}, () => [
-        d("Dropdown")
-      ])
-    ])
-  ]);
-}
-const i = /* @__PURE__ */ l(a, [["render", f]]);
+import o from "./index.vue2.js";
+import "./index.vue3.js";
+import t from "../../_virtual/_plugin-vue_export-helper.js";
+const m = /* @__PURE__ */ t(o, [["__scopeId", "data-v-33d420fd"]]);
 export {
-  i as default
+  m as default
 };

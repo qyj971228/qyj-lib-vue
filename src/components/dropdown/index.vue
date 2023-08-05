@@ -36,6 +36,10 @@ function triggerClick() {
   show.value = !show.value
 }
 
+function triggerMouseLeave() {
+  show.value = false
+}
+
 // TODO: watch 当下拉框显现时, 为body新增click事件监听, 使其被点击时关闭
 
 onMounted(() => {
@@ -49,12 +53,23 @@ onBeforeUnmount(() => {
 
 <template>
   <!--content -->
-  <div class="dropdown-trigger" v-bind="attrs" ref="triggerRef" @click="triggerClick()">
+  <div
+    class="dropdown-trigger"
+    v-bind="attrs"
+    ref="triggerRef"
+    @click="triggerClick()"
+    @mouseleave="triggerMouseLeave()"
+  >
     <slot>Dropdown</slot>
   </div>
   <!-- dropdown -->
   <Teleport to="body">
-    <div v-if="rendered" v-show="show" class="dropdown" :style="styles">
+    <div
+      v-if="rendered"
+      v-show="show"
+      class="dropdown"
+      :style="styles"
+    >
       <slot name="dropdown"></slot>
     </div>
   </Teleport>
@@ -66,6 +81,7 @@ onBeforeUnmount(() => {
   height: fit-content;
   width: fit-content;
 }
+
 .dropdown {
   position: absolute;
   display: flex;

@@ -1,11 +1,12 @@
 # qyj-lib-vue pack by Vite
 
 ## Css
+
 ### Auto import (Vite-only)
 
 `npm i -D vite-plugin-style-import`
 
-#### vite.config.js 
+#### vite.config.js
 
 ```
   import { createStyleImportPlugin } from 'vite-plugin-style-import'
@@ -25,8 +26,9 @@
       })
     ...
   ]
-  
+
 ```
+
 ### Global import(universal)
 
 `import 'qyj-lib-vue/dist/style.css`
