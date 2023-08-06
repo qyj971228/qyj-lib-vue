@@ -2,7 +2,7 @@ import { arrDel, arrReplace } from '../utils/tool'
 import type { ToRefs } from 'vue'
 
 class Component<T> {
-  constructor(prefix: string, props: ToRefs<T>, booleanProp: string[]) {
+  constructor(prefix: string, props: ToRefs<T>, booleanProp?: string[]) {
     this.classList = [prefix]
     this.prefix = prefix
     this.props = props

@@ -1,46 +1,167 @@
 <script setup lang="ts">
-import { computed, ref, useAttrs, type CSSProperties, onMounted, onBeforeUnmount } from 'vue'
+import {
+  computed,
+  ref,
+  useAttrs,
+  type CSSProperties,
+  onMounted,
+  onBeforeUnmount,
+  nextTick,
+  toRefs,
+  watch
+} from 'vue'
+
+import type { DropdownProps, Position } from './type/props'
+import DropdownClass from './class/DropdownClass'
 
 // eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
 
 const attrs = useAttrs()
+const props = defineProps<DropdownProps>()
+const propsRefs = toRefs<DropdownProps>(props)
+
+const className = ref<string>('')
 
 const triggerRef = ref<HTMLDivElement | null>(null)
+const dropdownRef = ref<HTMLDivElement | null>(null)
 const rendered = ref(false)
-const show = ref(false)
+const show = ref<'hidden' | 'visible'>('hidden')
 const top = ref(0)
 const left = ref(0)
+const position = ref<Position>('bottom')
+
+watch(
+  props,
+  () => {
+    if (props.position) {
+      const dropdown = new DropdownClass(propsRefs)
+      className.value = dropdown.getClassName(attrs.class as string)
+      position.value = props.position
+    }
+  },
+  {
+    immediate: true
+  }
+)
 
 const styles = computed(() => {
   return {
     top: top.value + 'px',
-    left: left.value + 'px'
+    left: left.value + 'px',
+    visibility: show.value
   } as CSSProperties
 })
 
 function getPosition() {
-  bottomLeft()
+  if (position.value == 'bottom-left') _bottomLeft()
+  if (position.value == 'bottom-right') _bottomRight()
+  if (position.value == 'bottom') _bottom()
+  if (position.value == 'top-left') _topLeft()
+  if (position.value == 'top') _top()
+  if (position.value == 'top-right') _topRight()
+  if (position.value == 'left')  _left()
+  if (position.value == 'right') _right()
 }
 
-function bottomLeft() {
+function _bottomLeft() {
   const x = triggerRef.value?.getBoundingClientRect().left ?? 0
   const y = triggerRef.value?.getBoundingClientRect().bottom ?? 0
   top.value = y
   left.value = x
 }
 
+function _bottomRight() {
+  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
+  const y = triggerRef.value?.getBoundingClientRect().bottom ?? 0
+  const triggerWidth = triggerRef.value?.clientWidth ?? 0
+  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
+  left.value = x + (triggerWidth - dropdownWidth)
+  top.value = y
+}
+
+function _bottom() {
+  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
+  const y = triggerRef.value?.getBoundingClientRect().bottom ?? 0
+  const triggerWidth = triggerRef.value?.clientWidth ?? 0
+  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
+  left.value = x + (triggerWidth - dropdownWidth) / 2
+  top.value = y
+}
+
+function _topLeft() {
+  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
+  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
+  const dropdownHeight = dropdownRef.value?.clientHeight ?? 0
+  top.value = y - dropdownHeight
+  left.value = x
+}
+
+function _top() {
+  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
+  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
+  const dropdownHeight = dropdownRef.value?.clientHeight ?? 0
+  const triggerWidth = triggerRef.value?.clientWidth ?? 0
+  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
+  top.value = y - dropdownHeight
+  left.value = x + (triggerWidth - dropdownWidth) / 2
+}
+
+function _topRight() {
+  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
+  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
+  const dropdownHeight = dropdownRef.value?.clientHeight ?? 0
+  const triggerWidth = triggerRef.value?.clientWidth ?? 0
+  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
+  left.value = x + (triggerWidth - dropdownWidth)
+  top.value = y - dropdownHeight
+}
+
+function _left() {
+  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
+  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
+  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
+  left.value = x - dropdownWidth
+  top.value = y
+}
+
+function _right() {
+  const x = triggerRef.value?.getBoundingClientRect().right ?? 0
+  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
+  left.value = x
+  top.value = y
+}
+
 function triggerClick() {
-  getPosition()
   if (!rendered.value) rendered.value = true
-  show.value = !show.value
+  nextTick(() => {
+    getPosition()
+    show.value = show.value == 'hidden' ? 'visible' : 'hidden'
+  })
 }
 
-function triggerMouseLeave() {
-  show.value = false
+function triggerMouseenter() {
+  if (!rendered.value) rendered.value = true
+  nextTick(() => {
+    getPosition()
+    show.value = show.value == 'hidden' ? 'visible' : 'hidden'
+  })
 }
 
-// TODO: watch 当下拉框显现时, 为body新增click事件监听, 使其被点击时关闭
+function triggerMouseleave() {
+  show.value = 'hidden'
+}
+
+function dropdownMouseenter() {
+  show.value = 'visible'
+}
+
+function dropdownMouseleave() {
+  show.value = 'hidden'
+}
+
+// TODO: prop trigger hover click
+// watch click关闭模式时 当下拉框显现, 为body新增click事件监听, 使其被点击时关闭
 
 onMounted(() => {
   window.addEventListener('resize', getPosition)
@@ -54,11 +175,12 @@ onBeforeUnmount(() => {
 <template>
   <!--content -->
   <div
-    class="dropdown-trigger"
     v-bind="attrs"
     ref="triggerRef"
-    @click="triggerClick()"
-    @mouseleave="triggerMouseLeave()"
+    class="qyj-dropdown-trigger"
+    @mouseenter="triggerMouseenter"
+    @click="triggerClick"
+    @mouseleave="triggerMouseleave"
   >
     <slot>Dropdown</slot>
   </div>
@@ -66,9 +188,11 @@ onBeforeUnmount(() => {
   <Teleport to="body">
     <div
       v-if="rendered"
-      v-show="show"
-      class="dropdown"
+      ref="dropdownRef"
+      :class="className"
       :style="styles"
+      @mouseenter="dropdownMouseenter"
+      @mouseleave="dropdownMouseleave"
     >
       <slot name="dropdown"></slot>
     </div>
@@ -76,24 +200,5 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.dropdown-trigger {
-  display: inline-block;
-  height: fit-content;
-  width: fit-content;
-}
-
-.dropdown {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  width: fit-content;
-  z-index: 1000;
-  padding: 5px;
-  border-radius: 6px;
-  background-color: rgba(246, 246, 246, 0.6);
-  box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.25), 0px 0px 1.5px 0px rgba(0, 0, 0, 0.3),
-    0px 0px 1px 0px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(40px);
-}
+@import url('./index.css');
 </style>

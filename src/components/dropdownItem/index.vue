@@ -1,0 +1,11 @@
+<script setup lang="ts"></script>
+
+<template>
+  <div class="dropdown-item">
+    <slot></slot>
+  </div>
+</template>
+
+<style scoped>
+@import url('./style/dropdownItem.css');
+</style>

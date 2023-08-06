@@ -12,6 +12,7 @@
   outline: 0px solid #fff;
   box-shadow: var(--app-box-shadow);
   padding: 4px 12px;
+  line-height: 1;
 }
 
 .qyj-btn:hover {
