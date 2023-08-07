@@ -47,10 +47,11 @@ class Component<T> {
 
   // 设置bool型prop
   public setBoolProps<T>(booleanProps?: string[]): void {
-    booleanProps && booleanProps.forEach((key) => {
-      const value = this.props[key as keyof T]?.value
-      if (value == true) this.addClass(key)
-    })
+    booleanProps &&
+      booleanProps.forEach((key) => {
+        const value = this.props[key as keyof T]?.value
+        if (value == true) this.addClass(key)
+      })
   }
 
   // 计算classList

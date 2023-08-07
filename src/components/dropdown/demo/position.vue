@@ -7,6 +7,7 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
     <div style="flex: 1">
       <Dropdown position="top-left">
         <Button weight="primary">top-left</Button>
+        <Button weight="primary">top-left</Button>
         <template #dropdown>
           <DropdownItem>item1</DropdownItem>
           <DropdownItem>item1</DropdownItem>

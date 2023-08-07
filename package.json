@@ -24,7 +24,7 @@
     "vitest:watch": "vitest watch",
     "vitest:run": "vitest run",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "type-check": "vue-tsc --noEmit -p --composite false",
     "eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .eslintignore",
     "prettier-format": "prettier --write .",
     "storybook": "storybook dev -p 6006",

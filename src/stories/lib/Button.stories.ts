@@ -13,9 +13,8 @@ const meta: Meta<typeof Button> = {
     weight: { control: 'select', options: ['primary', 'text', 'link', null] },
     ghost: { control: 'boolean' },
     dashed: { control: 'boolean' },
-    round: { control: 'boolean' },
-    disabled: { control: 'boolean' }
-  }
+    round: { control: 'boolean' }
+  },
 }
 
 export default meta

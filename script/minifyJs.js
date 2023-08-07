@@ -11,14 +11,9 @@ const UglifyJS = require('uglify-js')
 const ROOT_PATH = path.join(__dirname, '../dist')
 
 function minify(path) {
-  fs.writeFileSync(
-    path,
-    UglifyJS.minify({ 'file.js': fs.readFileSync(path, 'utf8') }).code,
-    'utf8',
-    function (error) {
-      console.log(error)
-    }
-  )
+  fs.writeFileSync(path, UglifyJS.minify({ 'file.js': fs.readFileSync(path, 'utf8') }).code, 'utf8', function (error) {
+    console.log(error)
+  })
 }
 
 function readFileList(currentPath) {

@@ -1,15 +1,6 @@
 const PREFIX = 'qyj-dropdown'
 
-const POSITION = [
-  'bottom',
-  'top',
-  'left',
-  'right',
-  'bottom-left',
-  'bottom-right',
-  'top-left',
-  'top-right'
-] as const
+const POSITION = ['bottom', 'top', 'left', 'right', 'bottom-left', 'bottom-right', 'top-left', 'top-right'] as const
 
 type Position = (typeof POSITION)[number]
 

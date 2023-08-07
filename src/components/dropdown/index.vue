@@ -1,17 +1,7 @@
 <script setup lang="ts">
-import {
-  computed,
-  ref,
-  useAttrs,
-  type CSSProperties,
-  onMounted,
-  onBeforeUnmount,
-  nextTick,
-  toRefs,
-  watch
-} from 'vue'
+import { computed, ref, useAttrs, type CSSProperties, onMounted, onBeforeUnmount, nextTick, toRefs, watch } from 'vue'
 
-import type { DropdownProps, Position } from './type/props'
+import type { DropdownProps } from './type/props'
 import DropdownClass from './class/DropdownClass'
 
 // eslint-disable-next-line no-undef
@@ -23,21 +13,20 @@ const propsRefs = toRefs<DropdownProps>(props)
 
 const className = ref<string>('')
 
-const triggerRef = ref<HTMLDivElement | null>(null)
-const dropdownRef = ref<HTMLDivElement | null>(null)
+const triggerRef = ref<Element | null>(null)
+const dropdownRef = ref<Element | null>(null)
+
 const rendered = ref(false)
 const show = ref<'hidden' | 'visible'>('hidden')
-const top = ref(0)
-const left = ref(0)
-const position = ref<Position>('bottom')
+
+let dropdown: DropdownClass
 
 watch(
   props,
   () => {
     if (props.position) {
-      const dropdown = new DropdownClass(propsRefs)
+      dropdown = new DropdownClass(propsRefs, triggerRef, dropdownRef)
       className.value = dropdown.getClassName(attrs.class as string)
-      position.value = props.position
     }
   },
   {
@@ -47,95 +36,16 @@ watch(
 
 const styles = computed(() => {
   return {
-    top: top.value + 'px',
-    left: left.value + 'px',
+    top: dropdown.top.value + 'px',
+    left: dropdown.left.value + 'px',
     visibility: show.value
   } as CSSProperties
 })
 
-function getPosition() {
-  if (position.value == 'bottom-left') _bottomLeft()
-  if (position.value == 'bottom-right') _bottomRight()
-  if (position.value == 'bottom') _bottom()
-  if (position.value == 'top-left') _topLeft()
-  if (position.value == 'top') _top()
-  if (position.value == 'top-right') _topRight()
-  if (position.value == 'left')  _left()
-  if (position.value == 'right') _right()
-}
-
-function _bottomLeft() {
-  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
-  const y = triggerRef.value?.getBoundingClientRect().bottom ?? 0
-  top.value = y
-  left.value = x
-}
-
-function _bottomRight() {
-  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
-  const y = triggerRef.value?.getBoundingClientRect().bottom ?? 0
-  const triggerWidth = triggerRef.value?.clientWidth ?? 0
-  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
-  left.value = x + (triggerWidth - dropdownWidth)
-  top.value = y
-}
-
-function _bottom() {
-  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
-  const y = triggerRef.value?.getBoundingClientRect().bottom ?? 0
-  const triggerWidth = triggerRef.value?.clientWidth ?? 0
-  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
-  left.value = x + (triggerWidth - dropdownWidth) / 2
-  top.value = y
-}
-
-function _topLeft() {
-  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
-  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
-  const dropdownHeight = dropdownRef.value?.clientHeight ?? 0
-  top.value = y - dropdownHeight
-  left.value = x
-}
-
-function _top() {
-  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
-  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
-  const dropdownHeight = dropdownRef.value?.clientHeight ?? 0
-  const triggerWidth = triggerRef.value?.clientWidth ?? 0
-  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
-  top.value = y - dropdownHeight
-  left.value = x + (triggerWidth - dropdownWidth) / 2
-}
-
-function _topRight() {
-  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
-  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
-  const dropdownHeight = dropdownRef.value?.clientHeight ?? 0
-  const triggerWidth = triggerRef.value?.clientWidth ?? 0
-  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
-  left.value = x + (triggerWidth - dropdownWidth)
-  top.value = y - dropdownHeight
-}
-
-function _left() {
-  const x = triggerRef.value?.getBoundingClientRect().left ?? 0
-  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
-  const dropdownWidth = dropdownRef.value?.clientWidth ?? 0
-  left.value = x - dropdownWidth
-  top.value = y
-}
-
-function _right() {
-  const x = triggerRef.value?.getBoundingClientRect().right ?? 0
-  const y = triggerRef.value?.getBoundingClientRect().top ?? 0
-  left.value = x
-  top.value = y
-}
-
 function triggerClick() {
   if (!rendered.value) rendered.value = true
   nextTick(() => {
-    getPosition()
+    dropdown.getPosition()
     show.value = show.value == 'hidden' ? 'visible' : 'hidden'
   })
 }
@@ -143,7 +53,7 @@ function triggerClick() {
 function triggerMouseenter() {
   if (!rendered.value) rendered.value = true
   nextTick(() => {
-    getPosition()
+    dropdown.getPosition()
     show.value = show.value == 'hidden' ? 'visible' : 'hidden'
   })
 }
@@ -164,11 +74,11 @@ function dropdownMouseleave() {
 // watch click关闭模式时 当下拉框显现, 为body新增click事件监听, 使其被点击时关闭
 
 onMounted(() => {
-  window.addEventListener('resize', getPosition)
+  window.addEventListener('resize', dropdown.getPosition.bind(dropdown))
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', getPosition)
+  window.removeEventListener('resize', dropdown.getPosition.bind(dropdown))
 })
 </script>
 

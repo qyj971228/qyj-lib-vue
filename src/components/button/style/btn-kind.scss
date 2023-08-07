@@ -18,30 +18,15 @@
   }
 }
 .qyj-btn-normal {
-  @include kind(
-    var(--app-color-primary),
-    var(--app-color-primary-light-60),
-    var(--app-color-primary-light-65),
-    var(--app-color-primary-light-97)
-  );
+  @include kind(var(--app-color-primary), var(--app-color-primary-light-60), var(--app-color-primary-light-65), var(--app-color-primary-light-97));
 }
 
 .qyj-btn-warn {
-  @include kind(
-    var(--app-color-warn),
-    var(--app-color-warn-light-60),
-    var(--app-color-warn-light-65),
-    var(--app-color-warn-light-97)
-  );
+  @include kind(var(--app-color-warn), var(--app-color-warn-light-60), var(--app-color-warn-light-65), var(--app-color-warn-light-97));
 }
 
 .qyj-btn-error {
-  @include kind(
-    var(--app-color-error),
-    var(--app-color-error-light-60),
-    var(--app-color-error-light-65),
-    var(--app-color-error-light-97)
-  );
+  @include kind(var(--app-color-error), var(--app-color-error-light-60), var(--app-color-error-light-65), var(--app-color-error-light-97));
 }
 
 @mixin primary-kind($base, $text, $border) {
@@ -68,27 +53,15 @@
 }
 
 .qyj-btn-primary-normal {
-  @include primary-kind(
-    var(--app-color-primary),
-    var(--app-color-primary-light-60),
-    var(--app-color-primary-light-65)
-  );
+  @include primary-kind(var(--app-color-primary), var(--app-color-primary-light-60), var(--app-color-primary-light-65));
 }
 
 .qyj-btn-primary-warn {
-  @include primary-kind(
-    var(--app-color-warn),
-    var(--app-color-warn-light-60),
-    var(--app-color-warn-light-65)
-  );
+  @include primary-kind(var(--app-color-warn), var(--app-color-warn-light-60), var(--app-color-warn-light-65));
 }
 
 .qyj-btn-primary-error {
-  @include primary-kind(
-    var(--app-color-error),
-    var(--app-color-error-light-60),
-    var(--app-color-error-light-65)
-  );
+  @include primary-kind(var(--app-color-error), var(--app-color-error-light-60), var(--app-color-error-light-65));
 }
 
 @mixin text-kind($base, $text, $background) {
@@ -117,27 +90,15 @@
 }
 
 .qyj-btn-text-normal {
-  @include text-kind(
-    var(--app-color-primary),
-    var(--app-color-primary-light-60),
-    var(--app-color-primary-light-97)
-  );
+  @include text-kind(var(--app-color-primary), var(--app-color-primary-light-60), var(--app-color-primary-light-97));
 }
 
 .qyj-btn-text-warn {
-  @include text-kind(
-    var(--app-color-warn),
-    var(--app-color-warn-light-60),
-    var(--app-color-warn-light-97)
-  );
+  @include text-kind(var(--app-color-warn), var(--app-color-warn-light-60), var(--app-color-warn-light-97));
 }
 
 .qyj-btn-text-error {
-  @include text-kind(
-    var(--app-color-error),
-    var(--app-color-error-light-60),
-    var(--app-color-error-light-97)
-  );
+  @include text-kind(var(--app-color-error), var(--app-color-error-light-60), var(--app-color-error-light-97));
 }
 
 @mixin link-kind($base, $text) {
