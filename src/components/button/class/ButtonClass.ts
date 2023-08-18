@@ -26,3 +26,4 @@ class Button extends Component<ButtonProps> {
   }
 }
 export default Button
+export type { Button }

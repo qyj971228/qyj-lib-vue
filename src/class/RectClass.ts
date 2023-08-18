@@ -1,5 +1,6 @@
-import type { Ref } from 'vue'
-export class Rect {
+import type { Ref } from "vue"
+
+class Rect {
   top: number = 0
   right: number = 0
   bottom: number = 0
@@ -15,14 +16,4 @@ export class Rect {
   }
 }
 
-export class Client {
-  clientWidth: number = 0
-  clientHeight: number = 0
-  constructor(domRef: Ref<Element | null>) {
-    if (domRef.value === null) return
-    else {
-      this.clientHeight = domRef.value?.clientHeight ?? 0
-      this.clientWidth = domRef.value?.clientWidth ?? 0
-    }
-  }
-}
+export default Rect

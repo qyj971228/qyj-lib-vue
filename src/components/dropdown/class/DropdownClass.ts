@@ -2,7 +2,8 @@ import { ref, type Ref, type ToRefs } from 'vue'
 import Component from '../../../class/ComponentClass'
 import { PREFIX } from '../type/props'
 import type { DropdownProps, Position } from '../type/props'
-import { Client, Rect } from '../../../utils/hook'
+import Client from '../../../class/ClientClass'
+import Rect from '../../../class/RectClass'
 
 class Dropdown extends Component<DropdownProps> {
   constructor(props: ToRefs<DropdownProps>, triggerRef: Ref<Element | null>, dropdownRef: Ref<Element | null>) {
@@ -69,3 +70,4 @@ class Dropdown extends Component<DropdownProps> {
 }
 
 export default Dropdown
+export type { Dropdown }

@@ -1,4 +1,4 @@
-import { arrDel, arrReplace } from '../utils/tool'
+import { arrDel, arrReplace } from '../utils/array'
 import type { ToRefs } from 'vue'
 
 class Component<T> {
