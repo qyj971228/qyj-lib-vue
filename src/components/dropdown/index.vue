@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, ref, useAttrs, type CSSProperties, onMounted, onBeforeUnmount, nextTick, toRefs, watch } from 'vue'
+import { computed, ref, useAttrs, type CSSProperties, nextTick, toRefs, watch } from 'vue'
 
 import type { DropdownProps } from './type/props'
 import DropdownClass from './class/DropdownClass'
+
+import { useEventListener } from '../../utils/useEventListener';
 
 // eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
@@ -20,6 +22,8 @@ const rendered = ref(false)
 const show = ref<'hidden' | 'visible'>('hidden')
 
 let dropdown: DropdownClass
+
+useEventListener('resize', () => dropdown.getPosition.bind(dropdown))
 
 watch(
   props,
@@ -73,37 +77,18 @@ function dropdownMouseleave() {
 // TODO: prop trigger hover click
 // watch click关闭模式时 当下拉框显现, 为body新增click事件监听, 使其被点击时关闭
 
-onMounted(() => {
-  window.addEventListener('resize', dropdown.getPosition.bind(dropdown))
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', dropdown.getPosition.bind(dropdown))
-})
 </script>
 
 <template>
   <!--content -->
-  <div
-    v-bind="attrs"
-    ref="triggerRef"
-    class="qyj-dropdown-trigger"
-    @mouseenter="triggerMouseenter"
-    @click="triggerClick"
-    @mouseleave="triggerMouseleave"
-  >
+  <div v-bind="attrs" ref="triggerRef" class="qyj-dropdown-trigger" @mouseenter="triggerMouseenter" @click="triggerClick"
+    @mouseleave="triggerMouseleave">
     <slot>Dropdown</slot>
   </div>
   <!-- dropdown -->
   <Teleport to="body">
-    <div
-      v-if="rendered"
-      ref="dropdownRef"
-      :class="className"
-      :style="styles"
-      @mouseenter="dropdownMouseenter"
-      @mouseleave="dropdownMouseleave"
-    >
+    <div v-if="rendered" ref="dropdownRef" :class="className" :style="styles" @mouseenter="dropdownMouseenter"
+      @mouseleave="dropdownMouseleave">
       <slot name="dropdown"></slot>
     </div>
   </Teleport>
