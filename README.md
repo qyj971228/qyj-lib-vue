@@ -32,5 +32,3 @@
 ### Global import(universal)
 
 `import 'qyj-lib-vue/dist/style.css`
-
-#### TODO: Vitest; storybook

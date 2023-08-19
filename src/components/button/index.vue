@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { toRefs, useAttrs } from 'vue'
-import ButtonClass, { type Button } from './class/ButtonClass'
+import { useAttrs } from 'vue'
+import ButtonClass from './class/ButtonClass'
 import type { ButtonProps } from './type/props'
-
-import { useComponentClass } from '../../hooks/index'
+import { useClassName } from '../../hooks/index'
 
 // eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
@@ -11,7 +10,7 @@ defineOptions({ inheritAttrs: false })
 const attrs = useAttrs()
 const props = defineProps<ButtonProps>()
 
-const [className] = useComponentClass<ButtonProps, Button>(props, () => new ButtonClass(toRefs(props)))
+const [className] = useClassName<ButtonProps, ButtonClass>(props, () => new ButtonClass(props))
 </script>
 <template>
   <button
@@ -25,4 +24,3 @@ const [className] = useComponentClass<ButtonProps, Button>(props, () => new Butt
 <style>
 @import './index.css';
 </style>
-../../utils/useComponentClass

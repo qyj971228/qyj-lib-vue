@@ -1,20 +1,19 @@
 import { arrDel, arrReplace } from '../utils/array'
-import type { ToRefs } from 'vue'
 
-class Component<T> {
-  constructor(prefix: string, props: ToRefs<T>, booleanProp?: string[]) {
+class Component<T extends Object> {
+  constructor(prefix: string, props: T, booleanProp?: string[]) {
     this.classList = [prefix]
     this.prefix = prefix
     this.props = props
-    this.setStrProps<T>()
-    this.setBoolProps<T>(booleanProp)
+    this.setStrProps()
+    this.setBoolProps(booleanProp)
   }
 
   public readonly _ = '-'
   public readonly prefix: string
   public readonly suffixs: string[] = []
   public readonly classList: string[]
-  public readonly props: ToRefs<T>
+  public readonly props: T
 
   // 组合class
   public composeClass(classList: string[]): string {
@@ -38,18 +37,18 @@ class Component<T> {
   }
 
   // 设置str型prop
-  public setStrProps<T>(): void {
+  public setStrProps(): void {
     Object.keys(this.props).forEach((key) => {
-      const value = this.props[key as keyof ToRefs<T>]?.value
+      const value = this.props[key as keyof T]
       if (typeof value == 'string') this.addClass(value)
     })
   }
 
   // 设置bool型prop
-  public setBoolProps<T>(booleanProps?: string[]): void {
+  public setBoolProps(booleanProps?: string[]): void {
     booleanProps &&
       booleanProps.forEach((key) => {
-        const value = this.props[key as keyof T]?.value
+        const value = this.props[key as keyof T]
         if (value == true) this.addClass(key)
       })
   }

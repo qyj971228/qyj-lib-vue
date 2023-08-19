@@ -1,48 +1,36 @@
 <script setup lang="ts">
-import { computed, ref, useAttrs, type CSSProperties, nextTick, toRefs } from 'vue'
+import { ref, useAttrs, nextTick, toRef } from 'vue'
 import type { DropdownProps } from './type/props'
-import DropdownClass, { type Dropdown } from './class/DropdownClass'
-import { useEventListener, useComponentClass, useOppsite } from '../../hooks/index'
+import DropdownClass from './class/DropdownClass'
+import { useClassName, useOppsite, useDropdownPosition, useVisibility } from '../../hooks/index'
 
 // eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
 
 const attrs = useAttrs()
 const props = defineProps<DropdownProps>()
-const propsRefs = toRefs<DropdownProps>(props)
-
-const triggerRef = ref<Element | null>(null)
-const dropdownRef = ref<Element | null>(null)
-
-const [isShow, oppsiteIsShow, hidden, visible] = useOppsite<'hidden' | 'visible'>('hidden', ['hidden', 'visible'])
+const triggerRef = ref<HTMLElement | null>(null)
+const dropdownRef = ref<HTMLElement | null>(null)
+const position = toRef(props.position)
 
 const [isRender, , render] = useOppsite<boolean>(false, [true, false])
-
-const [className, dropdown] = useComponentClass<DropdownProps, Dropdown>(props, () => new DropdownClass(propsRefs, triggerRef, dropdownRef))
-
-useEventListener('resize', () => dropdown.getPosition.bind(dropdown))
-
-const styles = computed(() => {
-  return {
-    top: dropdown.top.value + 'px',
-    left: dropdown.left.value + 'px',
-    visibility: isShow.value
-  } as CSSProperties
-})
+const [className] = useClassName<DropdownProps, DropdownClass>(props, () => new DropdownClass(props))
+const [updatePosition] = useDropdownPosition(position, triggerRef, dropdownRef)
+const [visible, hidden, oppsiteVisible] = useVisibility(dropdownRef)
 
 function triggerClick() {
   if (!isRender.value) render()
   nextTick(() => {
-    dropdown.getPosition()
-    oppsiteIsShow()
+    updatePosition()
+    oppsiteVisible()
   })
 }
 
 function triggerMouseenter() {
   if (!isRender.value) render()
   nextTick(() => {
-    dropdown.getPosition()
-    oppsiteIsShow()
+    updatePosition()
+    oppsiteVisible()
   })
 }
 
@@ -80,7 +68,6 @@ function dropdownMouseleave() {
       v-if="isRender"
       ref="dropdownRef"
       :class="className"
-      :style="styles"
       @mouseenter="dropdownMouseenter"
       @mouseleave="dropdownMouseleave"
     >

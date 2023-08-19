@@ -1,5 +1,7 @@
-import { useComponentClass } from './useComponentClass'
-import { useEventListener } from './useEventListener'
+import { useClassName } from './useClassName'
+import { useWindowEventListener } from './useWindowEventListener'
 import { useOppsite } from './useOppsite'
+import { useDropdownPosition } from './useDropdownPosition'
+import { useVisibility } from './useVisibility'
 
-export { useComponentClass, useEventListener, useOppsite }
+export { useClassName, useWindowEventListener, useOppsite, useDropdownPosition, useVisibility }

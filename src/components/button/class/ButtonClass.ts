@@ -1,15 +1,14 @@
-import type { ToRefs } from 'vue'
 import Component from '../../../class/ComponentClass'
 import { PREFIX, KIND, WEIGHT_EFFECT, BOOLEAN_PROP } from '../type/props'
 import type { ButtonProps } from '../type/props'
 class Button extends Component<ButtonProps> {
-  constructor(props: ToRefs<ButtonProps>) {
+  constructor(props: ButtonProps) {
     super(PREFIX, props, BOOLEAN_PROP)
     this.setButtonWeight()
   }
 
   private setButtonWeight(): void {
-    const weight = this.props.weight?.value
+    const weight = this.props.weight
     if (weight == undefined) return
 
     this.removeClass(weight) // 移除setStringProps时额外添加的weight
@@ -26,4 +25,3 @@ class Button extends Component<ButtonProps> {
   }
 }
 export default Button
-export type { Button }

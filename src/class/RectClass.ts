@@ -1,4 +1,4 @@
-import type { Ref } from "vue"
+import type { Ref } from 'vue'
 
 class Rect {
   top: number = 0
