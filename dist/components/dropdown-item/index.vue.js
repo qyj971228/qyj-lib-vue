@@ -1,5 +1,5 @@
 import { openBlock as o, createElementBlock as t, renderSlot as r } from "vue";
-import "./DropdownItem.vue2.js";
+import "./index.vue2.js";
 import n from "../../_virtual/_plugin-vue_export-helper.js";
 const c = {}, d = { class: "dropdown-item" };
 function s(e, _) {
@@ -7,7 +7,7 @@ function s(e, _) {
     r(e.$slots, "default", {}, void 0, !0)
   ]);
 }
-const m = /* @__PURE__ */ n(c, [["render", s], ["__scopeId", "data-v-3047caeb"]]);
+const l = /* @__PURE__ */ n(c, [["render", s], ["__scopeId", "data-v-6136461c"]]);
 export {
-  m as default
+  l as default
 };

@@ -4,7 +4,6 @@ const fs = require('fs')
 const sass = require('sass')
 const path = require('path')
 const ENTRY_PATH = path.join(__dirname, '../src') // 入口
-const MAP_DIRECTORIES = ['\\src', '\\dist'] // 映射
 const SASS_FILE_NAME = 'index.scss'
 
 function sassCompile(path) {
@@ -14,9 +13,9 @@ function sassCompile(path) {
 function pathTransform(path) {
   switch (process.platform) {
     case 'darwin':
-      return path.replace(...MAP_DIRECTORIES).substring(0, path.length - 4) + 'css' // mac
+      return path.replace('/src', '/dist').substring(0, path.length - 3) + 'css' // mac
     case 'win32':
-      return path.replace(...MAP_DIRECTORIES).substring(0, path.length - 3) + 'css' // windows
+      return path.replace('\\src', '\\dist').substring(0, path.length - 3) + 'css' // windows
   }
 }
 

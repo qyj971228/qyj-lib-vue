@@ -1,7 +1,7 @@
-var a = Object.defineProperty;
-var p = (i, s, t) => s in i ? a(i, s, { enumerable: !0, configurable: !0, writable: !0, value: t }) : i[s] = t;
+var e = Object.defineProperty;
+var p = (i, s, t) => s in i ? e(i, s, { enumerable: !0, configurable: !0, writable: !0, value: t }) : i[s] = t;
 var r = (i, s, t) => (p(i, typeof s != "symbol" ? s + "" : s, t), t);
-import { arrDel as l, arrReplace as h } from "../utils/tool.js";
+import { arrDel as a, arrReplace as h } from "../utils/array.js";
 class f {
   constructor(s, t, o) {
     r(this, "_", "-");
@@ -21,7 +21,7 @@ class f {
   }
   // 移除class
   removeClass(s) {
-    l(this.suffixs, s);
+    a(this.suffixs, s);
   }
   // 替换class
   replaceClass(s, t) {
@@ -30,16 +30,14 @@ class f {
   // 设置str型prop
   setStrProps() {
     Object.keys(this.props).forEach((s) => {
-      var o;
-      const t = (o = this.props[s]) == null ? void 0 : o.value;
+      const t = this.props[s];
       typeof t == "string" && this.addClass(t);
     });
   }
   // 设置bool型prop
   setBoolProps(s) {
-    s.forEach((t) => {
-      var e;
-      ((e = this.props[t]) == null ? void 0 : e.value) == !0 && this.addClass(t);
+    s && s.forEach((t) => {
+      this.props[t] == !0 && this.addClass(t);
     });
   }
   // 计算classList

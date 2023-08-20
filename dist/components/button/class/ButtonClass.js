@@ -1,21 +1,20 @@
-import r from "../../../class/ComponentClass.js";
-import { PREFIX as h, BOOLEAN_PROP as a, KIND as i, WEIGHT_EFFECT as n } from "../type/props.js";
-class u extends r {
+import i from "../../../class/ComponentClass.js";
+import { PREFIX as r, BOOLEAN_PROP as h, KIND as o, WEIGHT_EFFECT as n } from "../type/props.js";
+class p extends i {
   constructor(s) {
-    super(h, s, a), this.setButtonWeight();
+    super(r, s, h), this.setButtonWeight();
   }
   setButtonWeight() {
-    var o;
-    const s = (o = this.props.weight) == null ? void 0 : o.value;
+    const s = this.props.weight;
     if (s == null)
       return;
     this.removeClass(s);
-    const t = i.find((e) => this.suffixs.includes(e));
+    const t = o.find((e) => this.suffixs.includes(e));
     t ? (this.replaceClass(t, this.composeClass([s, t])), n.forEach((e) => {
       this.removeClass(e);
-    })) : this.addClass(this.composeClass([s, i[0]]));
+    })) : this.addClass(this.composeClass([s, o[0]]));
   }
 }
 export {
-  u as default
+  p as default
 };

@@ -1,6 +1,7 @@
-import { defineComponent as r, useAttrs as l, toRefs as c, ref as p, watch as u, openBlock as d, createElementBlock as i, mergeProps as m, unref as f, renderSlot as B, createTextVNode as h } from "vue";
-import _ from "./class/ButtonClass.js";
-const k = /* @__PURE__ */ r({
+import { defineComponent as a, useAttrs as l, openBlock as p, createElementBlock as c, mergeProps as m, unref as t, renderSlot as d, createTextVNode as i } from "vue";
+import u from "./class/ButtonClass.js";
+import { useClassName as f } from "../../hooks/useClassName.js";
+const g = /* @__PURE__ */ a({
   inheritAttrs: !1,
   __name: "index",
   props: {
@@ -12,24 +13,15 @@ const k = /* @__PURE__ */ r({
     weight: {},
     disabled: { type: Boolean }
   },
-  setup(n) {
-    const t = n, o = l(), a = c(t), s = p("");
-    return u(
-      t,
-      () => {
-        const e = new _(a);
-        s.value = e.getClassName(o.class);
-      },
-      {
-        immediate: !0
-      }
-    ), (e, g) => (d(), i("button", m({ class: s.value }, f(o)), [
-      B(e.$slots, "default", {}, () => [
-        h("Button")
+  setup(o) {
+    const e = o, s = l(), [n] = f(e, () => new u(e));
+    return (r, B) => (p(), c("button", m({ class: t(n) }, t(s)), [
+      d(r.$slots, "default", {}, () => [
+        i("Button")
       ])
     ], 16));
   }
 });
 export {
-  k as default
+  g as default
 };
