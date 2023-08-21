@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { useOppsite } from './useOppsite'
 
-export function useVisibility(domRef: Ref<HTMLElement | null>, initState: 'visible' | 'hidden' = 'visible'): [Function, Function, Function] {
+export function useVisibility(domRef: Ref<HTMLElement | null>, initState: 'visible' | 'hidden' = 'hidden'): [Function, Function, Function, Ref<'visible' | 'hidden'>] {
   const [state, _oppsite, _visible, _hidden] = useOppsite<'visible' | 'hidden'>(initState, ['visible', 'hidden'])
 
   function init() {
@@ -31,5 +31,5 @@ export function useVisibility(domRef: Ref<HTMLElement | null>, initState: 'visib
       }
     }
   }
-  return [visible, hidden, oppsite]
+  return [visible, hidden, oppsite, state]
 }

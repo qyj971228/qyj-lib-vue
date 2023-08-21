@@ -2,13 +2,17 @@ const PREFIX = 'qyj-dropdown'
 
 const POSITION = ['bottom', 'top', 'left', 'right', 'bottom-left', 'bottom-right', 'top-left', 'top-right'] as const
 
-// const close = ['click', 'hover']
-// const open = ['click', 'hover']
+const CLOSE = ['click', 'hover'] as const
+const OPEN = ['click', 'hover'] as const
 
 type Position = (typeof POSITION)[number]
+type Close = (typeof CLOSE)[number]
+type Open = (typeof OPEN)[number]
 
 type DropdownProps = Partial<{
   position: Position
+  close: Close
+  open: Open
 }>
 
 export type { DropdownProps, Position }

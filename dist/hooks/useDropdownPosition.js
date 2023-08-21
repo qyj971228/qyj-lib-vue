@@ -4,7 +4,7 @@ import { watch as _ } from "vue";
 import { useWindowEventListener as x } from "./useWindowEventListener.js";
 function z(u, t, l) {
   let i = 0, c = 0;
-  x("resize", () => h()), _(
+  x("resize", h), _(
     u,
     () => {
       h();

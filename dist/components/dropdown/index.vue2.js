@@ -1,64 +1,83 @@
-import { defineComponent as V, useAttrs as b, ref as a, toRef as h, openBlock as r, createElementBlock as c, Fragment as x, createElementVNode as B, mergeProps as D, unref as n, renderSlot as f, createTextVNode as P, createBlock as T, Teleport as A, normalizeClass as E, createCommentVNode as $, nextTick as m } from "vue";
-import j from "./class/DropdownClass.js";
-import { useClassName as q } from "../../hooks/useClassName.js";
-import { useOppsite as z } from "../../hooks/useOppsite.js";
-import { useDropdownPosition as F } from "../../hooks/useDropdownPosition.js";
-import { useVisibility as O } from "../../hooks/useVisibility.js";
-const Q = /* @__PURE__ */ V({
+import { defineComponent as x, useAttrs as B, ref as m, toRef as u, openBlock as a, createElementBlock as g, Fragment as D, createElementVNode as P, mergeProps as T, unref as c, renderSlot as h, createTextVNode as A, createBlock as E, Teleport as $, normalizeClass as j, createCommentVNode as q, nextTick as k } from "vue";
+import z from "./class/DropdownClass.js";
+import { useClassName as F } from "../../hooks/useClassName.js";
+import { useOppsite as O } from "../../hooks/useOppsite.js";
+import { useDropdownPosition as S } from "../../hooks/useDropdownPosition.js";
+import { useVisibility as G } from "../../hooks/useVisibility.js";
+const W = /* @__PURE__ */ x({
   inheritAttrs: !1,
   __name: "index",
   props: {
-    position: {}
+    position: {},
+    close: {},
+    open: {}
   },
-  setup(g) {
-    const e = g, v = b(), s = a(null), o = a(null), w = h(e.position), [t, , i] = z(!1, [!0, !1]), [k] = q(e, () => new j(e)), [l] = F(w, s, o), [M, u, p] = O(o);
-    function y() {
-      t.value || i(), m(() => {
-        l(), p();
-      });
-    }
+  setup(w) {
+    const e = w, M = B(), f = m(null), n = m(null), y = u(e.position), i = u(e.close ?? "hover"), t = u(e.open ?? "hover"), [s, , d] = O(!1, [!0, !1]), [b] = F(e, () => new z(e)), [p] = S(y, f, n), [o, l, , r] = G(n);
     function C() {
-      t.value || i(), m(() => {
-        l(), p();
-      });
+      if (s.value) {
+        if (t.value == "click" && r.value == "hidden") {
+          o();
+          return;
+        }
+        if (i.value == "click" && r.value == "visible") {
+          l();
+          return;
+        }
+      } else {
+        d(), k(() => {
+          p(), t.value == "click" && o();
+        });
+        return;
+      }
     }
     function R() {
-      u();
+      if (s.value)
+        t.value == "hover" && r.value == "hidden" && o();
+      else {
+        d(), k(() => {
+          p(), t.value == "hover" && o();
+        });
+        return;
+      }
     }
     function _() {
-      M();
+      i.value == "hover" && r.value == "visible" && l();
     }
     function N() {
-      u();
+      o();
     }
-    return (d, S) => (r(), c(x, null, [
-      B("div", D(n(v), {
+    function V() {
+      i.value == "hover" && r.value == "visible" && l();
+    }
+    return (v, H) => (a(), g(D, null, [
+      P("div", T(c(M), {
         ref_key: "triggerRef",
-        ref: s,
+        ref: f,
         class: "qyj-dropdown-trigger",
-        onMouseenter: C,
-        onClick: y,
-        onMouseleave: R
+        onMouseenter: R,
+        onClick: C,
+        onMouseleave: _
       }), [
-        f(d.$slots, "default", {}, () => [
-          P("Dropdown")
+        h(v.$slots, "default", {}, () => [
+          A("Dropdown")
         ], !0)
       ], 16),
-      (r(), T(A, { to: "body" }, [
-        n(t) ? (r(), c("div", {
+      (a(), E($, { to: "body" }, [
+        c(s) ? (a(), g("div", {
           key: 0,
           ref_key: "dropdownRef",
-          ref: o,
-          class: E(n(k)),
-          onMouseenter: _,
-          onMouseleave: N
+          ref: n,
+          class: j(c(b)),
+          onMouseenter: N,
+          onMouseleave: V
         }, [
-          f(d.$slots, "dropdown", {}, void 0, !0)
-        ], 34)) : $("", !0)
+          h(v.$slots, "dropdown", {}, void 0, !0)
+        ], 34)) : q("", !0)
       ]))
     ], 64));
   }
 });
 export {
-  Q as default
+  W as default
 };

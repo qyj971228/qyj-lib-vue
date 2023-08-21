@@ -8,7 +8,7 @@ export function useDropdownPosition(position: Ref<Position | undefined>, trigger
   let left = 0
   let top = 0
 
-  useWindowEventListener('resize', () => getPosition())
+  useWindowEventListener('resize', getPosition)
 
   watch(
     position,

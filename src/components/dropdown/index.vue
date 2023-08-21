@@ -12,42 +12,59 @@ const props = defineProps<DropdownProps>()
 const triggerRef = ref<HTMLElement | null>(null)
 const dropdownRef = ref<HTMLElement | null>(null)
 const position = toRef(props.position)
+const close = toRef(props.close ?? 'hover')
+const open = toRef(props.open ?? 'hover')
 
 const [isRender, , render] = useOppsite<boolean>(false, [true, false])
 const [className] = useClassName<DropdownProps, DropdownClass>(props, () => new DropdownClass(props))
 const [updatePosition] = useDropdownPosition(position, triggerRef, dropdownRef)
-const [visible, hidden, oppsiteVisible] = useVisibility(dropdownRef)
+const [show, hide, , visibility] = useVisibility(dropdownRef)
 
 function triggerClick() {
-  if (!isRender.value) render()
-  nextTick(() => {
-    updatePosition()
-    oppsiteVisible()
-  })
+  if (!isRender.value) {
+    render()
+    nextTick(() => {
+      updatePosition()
+      if (open.value == 'click') show()
+    })
+    return
+  } else {
+    if (open.value == 'click' && visibility.value == 'hidden') {
+      show()
+      return
+    }
+    if (close.value == 'click' && visibility.value == 'visible') {
+      hide()
+      return
+    }
+  }
 }
 
 function triggerMouseenter() {
-  if (!isRender.value) render()
-  nextTick(() => {
-    updatePosition()
-    oppsiteVisible()
-  })
+  if (!isRender.value) {
+    render()
+    nextTick(() => {
+      updatePosition()
+      if (open.value == 'hover') show()
+    })
+    return
+  } else {
+    if (open.value == 'hover' && visibility.value == 'hidden') show()
+  }
 }
 
 function triggerMouseleave() {
-  hidden()
+  if (close.value == 'hover' && visibility.value == 'visible') hide()
 }
 
 function dropdownMouseenter() {
-  visible()
+  show()
 }
 
 function dropdownMouseleave() {
-  hidden()
+  close.value == 'hover' && visibility.value == 'visible' && hide()
 }
 
-// TODO: prop trigger hover click
-// watch click关闭模式时 当下拉框显现, 为body新增click事件监听, 使其被点击时关闭
 </script>
 
 <template>
