@@ -5,3 +5,7 @@ import DropdownDemoPosition from './components/dropdown/demo/position.vue'
 <template>
   <DropdownDemoPosition></DropdownDemoPosition>
 </template>
+
+<style>
+@import url(./style/animation.css);
+</style>

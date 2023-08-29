@@ -18,6 +18,7 @@ export function useDropdownPosition(position: Ref<Position | undefined>, trigger
     { immediate: true }
   )
 
+  // TODO: 不同位置的重叠方式也不同
   function getPosition() {
     position.value = position.value ?? 'bottom'
     if (position.value == 'bottom-left') _bottomLeft()

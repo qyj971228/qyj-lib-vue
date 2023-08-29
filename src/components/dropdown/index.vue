@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, useAttrs, nextTick, toRef } from 'vue'
+import { ref, useAttrs, nextTick, toRef, computed } from 'vue'
 import type { DropdownProps } from './type/props'
 import DropdownClass from './class/DropdownClass'
-import { useClassName, useOppsite, useDropdownPosition, useVisibility } from '../../hooks/index'
+import { useClassName, useOppsite, useDropdownPosition } from '../../hooks/index'
+import { inAndOut_ANI } from '../../utils/animation'
 
 // eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
@@ -15,56 +16,75 @@ const position = toRef(props.position)
 const close = toRef(props.close ?? 'hover')
 const open = toRef(props.open ?? 'hover')
 
-const [isRender, , render] = useOppsite<boolean>(false, [true, false])
+const [isRender, , render] = useOppsite<boolean>([true, false], false)
 const [className] = useClassName<DropdownProps, DropdownClass>(props, () => new DropdownClass(props))
 const [updatePosition] = useDropdownPosition(position, triggerRef, dropdownRef)
-const [show, hide, , visibility] = useVisibility(dropdownRef)
 
-function triggerClick() {
-  if (!isRender.value) {
-    render()
-    nextTick(() => {
-      updatePosition()
-      if (open.value == 'click') show()
-    })
-    return
-  } else {
-    if (open.value == 'click' && visibility.value == 'hidden') {
-      show()
-      return
-    }
-    if (close.value == 'click' && visibility.value == 'visible') {
-      hide()
-      return
-    }
+const visibility = ref<'visible' | 'hidden'>('visible')
+const [aniIn, aniOut] = inAndOut_ANI(dropdownRef)
+function show() {
+  if (dropdownRef.value !== null) {
+    visibility.value = 'visible'
+    aniIn()
   }
+}
+function hide() {
+  if (dropdownRef.value !== null) {
+    visibility.value = 'hidden'
+    aniOut()
+  }
+}
+
+// eslint-disable-next-line no-undef
+let hideTimer: NodeJS.Timeout
+
+const openHover = computed(() => open.value == 'hover')
+const closeHover = computed(() => close.value == 'hover')
+const hidden = computed(() => visibility.value == 'hidden')
+const visible = computed(() => visibility.value == 'visible')
+
+function handleRender(callback: () => void) {
+  render()
+  nextTick(() => {
+    updatePosition()
+    callback()
+  })
 }
 
 function triggerMouseenter() {
   if (!isRender.value) {
-    render()
-    nextTick(() => {
-      updatePosition()
-      if (open.value == 'hover') show()
+    handleRender(() => {
+      if (openHover.value) {
+        show()
+      }
     })
     return
-  } else {
-    if (open.value == 'hover' && visibility.value == 'hidden') show()
+  }
+  clearTimeout(hideTimer)
+  if (openHover.value && hidden.value) {
+    show()
   }
 }
 
 function triggerMouseleave() {
-  if (close.value == 'hover' && visibility.value == 'visible') hide()
+  if (closeHover.value && visible.value)
+    hideTimer = setTimeout(() => {
+      hide()
+    }, 200)
 }
 
 function dropdownMouseenter() {
+  clearTimeout(hideTimer)
   show()
 }
 
 function dropdownMouseleave() {
-  close.value == 'hover' && visibility.value == 'visible' && hide()
+  if (closeHover.value && visible.value) {
+    hideTimer = setTimeout(() => {
+      hide()
+    }, 200)
+  }
 }
-
 </script>
 
 <template>
@@ -74,7 +94,6 @@ function dropdownMouseleave() {
     ref="triggerRef"
     class="qyj-dropdown-trigger"
     @mouseenter="triggerMouseenter"
-    @click="triggerClick"
     @mouseleave="triggerMouseleave"
   >
     <slot>Dropdown</slot>
