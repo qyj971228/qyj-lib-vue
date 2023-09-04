@@ -22,7 +22,8 @@ module.exports = {
         'build', // 主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交
         'other',
         'sb', // storybook
-        'init' // init functions
+        'init', // init functions
+        'stage', // stage
       ]
     ]
   }

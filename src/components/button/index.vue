@@ -24,4 +24,3 @@ const [className] = useClassName<ButtonProps, ButtonClass>(props, () => new Butt
 <style>
 @import './index.css';
 </style>
-../../hello1/hello

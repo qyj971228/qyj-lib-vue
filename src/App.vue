@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import DropdownDemoPosition from './components/dropdown/demo/position.vue'
+// import DropdownDemoPosition from './components/dropdown/demo/position.vue'
+import Menu from './components/menu/index.vue'
 </script>
 
 <template>
-  <DropdownDemoPosition></DropdownDemoPosition>
+  <!-- <DropdownDemoPosition></DropdownDemoPosition> -->
+  <Menu></Menu>
 </template>
 
 <style>
