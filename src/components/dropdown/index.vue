@@ -3,7 +3,7 @@ import { ref, useAttrs, nextTick, toRef, computed } from 'vue'
 import type { DropdownProps } from './type/props'
 import DropdownClass from './class/DropdownClass'
 import { useClassName, useOppsite, useDropdownPosition } from '../../hooks/index'
-import { inAndOut_ANI } from '../../utils/animation'
+import { ani_dropdown } from '../../utils/animation'
 
 // eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
@@ -21,7 +21,7 @@ const [className] = useClassName<DropdownProps, DropdownClass>(props, () => new 
 const [updatePosition] = useDropdownPosition(position, triggerRef, dropdownRef)
 
 const visibility = ref<'visible' | 'hidden'>('visible')
-const [aniIn, aniOut] = inAndOut_ANI(dropdownRef)
+const [aniIn, aniOut] = ani_dropdown(dropdownRef,  position)
 function show() {
   if (dropdownRef.value !== null) {
     visibility.value = 'visible'
@@ -54,9 +54,7 @@ function handleRender(callback: () => void) {
 function triggerMouseenter() {
   if (!isRender.value) {
     handleRender(() => {
-      if (openHover.value) {
-        show()
-      }
+      openHover.value && show()
     })
     return
   }

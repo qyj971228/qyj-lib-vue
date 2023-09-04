@@ -1,4 +1,4 @@
-@keyframes qyj-in {
+@keyframes qyj-dropdown-in_top-to-bottom {
   0% {
     opacity: 0;
     visibility: hidden;
@@ -7,19 +7,97 @@
   100% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1);
+    transform: scale(1, 1) translateY(-2px);
   }
 }
 
-@keyframes qyj-out {
+@keyframes qyj-dropdown-out_top-to-bottom {
   0% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1);
+    transform: scale(1, 1) translateY(-2px);
   }
   100% {
     opacity: 0;
     visibility: hidden;
     transform: scale(1, 0.9) translateY(-10%);
+  }
+}
+
+@keyframes qyj-dropdown-in_bottom-to-top {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1, 0.9) translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1, 1) translateY(2px);
+  }
+}
+
+@keyframes qyj-dropdown-out_bottom-to-top {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1, 1) translateY(2px);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1, 0.9) translateY(10%);
+  }
+}
+
+@keyframes qyj-dropdown-in_left-to-right {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9, 1) translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1, 1) translateX(-2px);
+  }
+}
+
+@keyframes qyj-dropdown-out_left-to-right {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1, 1) translateX(-2px);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9, 1) translateX(-10%);
+  }
+}
+
+@keyframes qyj-dropdown-in_right-to-left {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9, 1) translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1, 1) translateX(2px);
+  }
+}
+
+@keyframes qyj-dropdown-out_right-to-left {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1, 1) translateX(2px);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9, 1) translateX(10%);
   }
 }

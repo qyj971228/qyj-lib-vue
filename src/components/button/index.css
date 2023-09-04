@@ -8,7 +8,7 @@
   border-radius: var(--app-border-radius);
   border-color: var(--app-border-color);
   cursor: pointer;
-  transition: all 0.1s;
+  transition: all 0.2s;
   outline: 0px solid #fff;
   box-shadow: var(--app-box-shadow);
   padding: 4px 12px;
