@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, useAttrs, nextTick, toRef, computed } from 'vue'
+import { ref, useAttrs, nextTick, toRef, computed, onBeforeUnmount } from 'vue'
 import type { DropdownProps } from './type/props'
 import DropdownClass from './class/DropdownClass'
 import { useClassName, useOppsite, useDropdownPosition } from '../../hooks/index'
@@ -37,6 +37,10 @@ function hide() {
 
 // eslint-disable-next-line no-undef
 let hideTimer: NodeJS.Timeout
+
+onBeforeUnmount(() => {
+  clearTimeout(hideTimer)
+})
 
 const openHover = computed(() => open.value == 'hover')
 const closeHover = computed(() => close.value == 'hover')
