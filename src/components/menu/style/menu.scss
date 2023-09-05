@@ -3,11 +3,16 @@
 }
 .qyj-menu-group {
   margin: 0;
+  overflow: hidden;
+  background-color: #eee;
 }
 .qyj-menu-level-main {
-
+  height: 50px;
+  list-style: none;
+  background-color: red;
 }
 
 .qyj-menu-level-secondary {
-  
+  list-style: none;
+  background-color: green;
 }
