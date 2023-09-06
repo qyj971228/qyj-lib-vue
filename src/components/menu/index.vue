@@ -11,8 +11,9 @@ interface List {
   name: string
   className?: string
   children?: List[]
-  collapsible?: boolean
-  isCollapsed?: boolean
+  collapsible?: boolean // 可折叠性
+  isCollapsed?: boolean // 是否折叠
+  level?: number
 }
 
 const list = toRef(props.list)
@@ -37,25 +38,27 @@ const listData = computed(() => {
 const menuGroup = ref<HTMLElement[] | null>()
 const menuItem = ref<HTMLElement[] | null>()
 
-function onClickPrimaryItem(item: List, index: number) {
-  console.log(item, index)
-  if (item.children?.length == 1) return
+function onClickPrimaryItem(primaryItem: List, primaryIndex: number) {
+  console.log(primaryItem, primaryIndex)
+  if (primaryItem.children?.length == 1) return
   if (!(menuGroup.value && menuItem.value)) return
-  // 未折叠
-  if (!item.collapsible && !list.value[index].isCollapsed) {
-    const height = menuItem.value[0].clientHeight // 一级菜单的高度
-    menuGroup.value[index].style.height = height + 'px' // 菜单分组高度只显示一级菜单
-    list.value[index].isCollapsed = true // 变为折叠状态
-    return
-  }
-  // 已折叠
-  if (!item.collapsible && list.value[index].isCollapsed) {
-    const primaryHeight = menuItem.value[0].clientHeight // 一级菜单的高度
-    const secondaryHeight = menuItem.value[1].clientHeight // 二级菜单的高度
-    menuGroup.value[index].style.height = primaryHeight + secondaryHeight * ((list.value[index].children?.length ?? 1) - 1) + 'px'
-    list.value[index].isCollapsed = false // 变为折叠状态
-    return
-  }
+  const primaryHeight = menuItem.value.find((el) => el.className == 'qyj-menu-level-main')?.clientHeight ?? 0
+  const secondaryHeight = menuItem.value.find((el) => el.className == 'qyj-menu-level-secondary')?.clientHeight ?? 0
+  const computedHeight = primaryHeight + secondaryHeight * ((primaryItem.children?.length ?? 1) - 1)
+  menuGroup.value[primaryIndex].style.height = computedHeight + 'px'
+  menuGroup.value[primaryIndex].style.lineHeight = primaryHeight + 'px'
+  setTimeout(() => {
+    if (!primaryItem.collapsible && !list.value[primaryIndex].isCollapsed) {
+      menuGroup.value && (menuGroup.value[primaryIndex].style.height = primaryHeight + 'px') // 菜单分组高度只显示一级菜单
+      list.value[primaryIndex].isCollapsed = true // 变为折叠状态
+      return
+    }
+    if (!primaryItem.collapsible && list.value[primaryIndex].isCollapsed) {
+      menuGroup.value && (menuGroup.value[primaryIndex].style.height = primaryHeight + secondaryHeight * ((list.value[primaryIndex].children?.length ?? 1) - 1) + 'px')
+      list.value[primaryIndex].isCollapsed = false // 变为折叠状态
+      return
+    }
+  })
 }
 
 function onClickSecondaryItem(item: List, index: number) {

@@ -4,7 +4,6 @@ import Menu from './components/menu/index.vue'
 </script>
 
 <template>
-  <!-- <DropdownDemoPosition></DropdownDemoPosition> -->
   <Menu
     :list="[
       {
@@ -17,6 +16,8 @@ import Menu from './components/menu/index.vue'
       }
     ]"
   ></Menu>
+  <!-- <DropdownDemoPosition></DropdownDemoPosition> -->
+  
 </template>
 
 <style>
