@@ -13,6 +13,7 @@ type DropdownProps = Partial<{
   position: Position
   close: Close
   open: Open
+  data: { name: string, onclick: Function }[]
 }>
 
 export type { DropdownProps, Position }

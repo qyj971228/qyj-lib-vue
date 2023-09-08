@@ -6,13 +6,15 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
 <template>
   <div style="padding-top: 100px; text-align: center; display: flex">
     <div style="flex: 1">
-      <Dropdown position="top-left">
+      <Dropdown
+        position="top-left"
+        :data="[
+          { name: 'item1', onclick: () => {} },
+          { name: 'item2', onclick: () => {} }
+        ]"
+      >
         <Button weight="primary">top-left</Button>
         <Button weight="primary">top-left</Button>
-        <template #dropdown>
-          <DropdownItem>item1</DropdownItem>
-          <DropdownItem>item1</DropdownItem>
-        </template>
       </Dropdown>
     </div>
     <div style="flex: 1">

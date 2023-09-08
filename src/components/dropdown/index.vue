@@ -4,17 +4,22 @@ import type { DropdownProps } from './type/props'
 import DropdownClass from './class/DropdownClass'
 import { useClassName, useOppsite, useDropdownPosition } from '../../hooks/index'
 import { ani_dropdown } from '../../utils/animation'
+import DropdownItem from '../dropdown-item/index.vue'
 
 // eslint-disable-next-line no-undef
 defineOptions({ inheritAttrs: false })
 
 const attrs = useAttrs()
+
 const props = defineProps<DropdownProps>()
-const triggerRef = ref<HTMLElement | null>(null)
-const dropdownRef = ref<HTMLElement | null>(null)
 const position = toRef(props.position)
+const data = toRef(props.data)
+console.log(data.value)
 const close = toRef(props.close ?? 'hover')
 const open = toRef(props.open ?? 'hover')
+
+const triggerRef = ref<HTMLElement | null>(null)
+const dropdownRef = ref<HTMLElement | null>(null)
 
 const [isRender, , render] = useOppsite<boolean>([true, false], false)
 const [className] = useClassName<DropdownProps, DropdownClass>(props, () => new DropdownClass(props))
@@ -90,7 +95,6 @@ function dropdownMouseleave() {
 </script>
 
 <template>
-  <!--content -->
   <div
     v-bind="attrs"
     ref="triggerRef"
@@ -100,7 +104,6 @@ function dropdownMouseleave() {
   >
     <slot>Dropdown</slot>
   </div>
-  <!-- dropdown -->
   <Teleport to="body">
     <div
       v-if="isRender"
@@ -109,7 +112,19 @@ function dropdownMouseleave() {
       @mouseenter="dropdownMouseenter"
       @mouseleave="dropdownMouseleave"
     >
-      <slot name="dropdown"></slot>
+      <slot
+        v-if="!data?.length"
+        name="dropdown"
+      >
+      </slot>
+      <DropdownItem
+        v-else
+        v-for="(item, index) in data"
+        :key="index"
+        @click="item.onclick"
+      >
+        {{ item.name }}
+      </DropdownItem>
     </div>
   </Teleport>
 </template>

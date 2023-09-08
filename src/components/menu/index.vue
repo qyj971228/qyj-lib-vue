@@ -30,8 +30,9 @@ const data = toRef(props.data)
         v-for="(item, itemIndex) in group"
         :key="itemIndex"
         @click="item.onclick(item.name, itemIndex)"
-        >{{ item.name }}</MenuItem
       >
+        {{ item.name }}
+      </MenuItem>
     </MenuGroup>
   </div>
 </template>
