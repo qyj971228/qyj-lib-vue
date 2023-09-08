@@ -23,7 +23,7 @@ module.exports = {
         'other',
         'sb', // storybook
         'init', // init functions
-        'stage', // stage
+        'stage' // stage
       ]
     ]
   }

@@ -21,7 +21,7 @@ const [className] = useClassName<DropdownProps, DropdownClass>(props, () => new 
 const [updatePosition] = useDropdownPosition(position, triggerRef, dropdownRef)
 
 const visibility = ref<'visible' | 'hidden'>('visible')
-const [aniIn, aniOut] = ani_dropdown(dropdownRef,  position)
+const [aniIn, aniOut] = ani_dropdown(dropdownRef, position)
 function show() {
   if (dropdownRef.value !== null) {
     visibility.value = 'visible'

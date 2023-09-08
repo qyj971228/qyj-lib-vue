@@ -1,25 +1,21 @@
 <script setup lang="ts">
 // import DropdownDemoPosition from './components/dropdown/demo/position.vue'
-import Menu from './components/menu/index.vue'
+// import Menu from './components/menu/index.vue'
+import MenuDemoElement from './components/menu/demo/MenuDemoElement.vue'
+import MenuDemoData from './components/menu/demo/MenuDemoData.vue'
 </script>
 
 <template>
-  <Menu
-    :list="[
-      {
-        name: '1',
-        children: [{ name: '1-1' }, { name: '1-2' }, { name: '1-3' }, { name: '1-4' }]
-      },
-      {
-        name: '2',
-        children: [{ name: '2-1' }]
-      }
-    ]"
-  ></Menu>
   <!-- <DropdownDemoPosition></DropdownDemoPosition> -->
-  
+  <MenuDemoElement></MenuDemoElement>
+  <hr />
+  <MenuDemoData></MenuDemoData>
 </template>
 
 <style>
+body {
+  padding: 0;
+  margin: 0;
+}
 @import url(./style/animation.css);
 </style>

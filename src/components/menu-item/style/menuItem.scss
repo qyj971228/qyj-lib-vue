@@ -1,0 +1,9 @@
+.qyj-menu-item {
+  margin: 0;
+  overflow: hidden;
+  height: 30px;
+  padding-left: 10px;
+  &:hover {
+    background-color: #eee;
+  }
+}

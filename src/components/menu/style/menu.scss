@@ -1,22 +1,6 @@
 .qyj-menu {
   width: 300px;
-}
-.qyj-menu-group {
-  margin: 0;
-  padding: 0;
+  display: inline-block;
   overflow: hidden;
-  background-color: #eee;
-  transition: height .2s;
-}
-.qyj-menu-level-main {
-  height: 50px;
-  line-height: 50px;
-  list-style: none;
-}
-
-.qyj-menu-level-secondary {
-  padding-left: 30px;
-  height: 30px;
-  line-height: 30px;
-  list-style: none;
+  border: 1px solid #eee;
 }
