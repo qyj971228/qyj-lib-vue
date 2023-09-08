@@ -4,8 +4,7 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
 </script>
 
 <template>
-  <div style="padding-top: 100px; text-align: center; display: flex">
-    <div style="flex: 1">
+  <div style="padding-top: 100px; padding-left: 100px;">
       <Dropdown
         position="top-left"
         :data="[
@@ -16,8 +15,6 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
         <Button weight="primary">top-left</Button>
         <Button weight="primary">top-left</Button>
       </Dropdown>
-    </div>
-    <div style="flex: 1">
       <Dropdown position="top">
         <Button weight="primary">top</Button>
         <template #dropdown>
@@ -25,8 +22,6 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
           <DropdownItem>item1</DropdownItem>
         </template>
       </Dropdown>
-    </div>
-    <div style="flex: 1">
       <Dropdown position="top-right">
         <Button weight="primary">top-right</Button>
         <template #dropdown>
@@ -35,9 +30,7 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
         </template>
       </Dropdown>
     </div>
-  </div>
-  <div style="padding-top: 100px; text-align: center; display: flex">
-    <div style="flex: 1">
+    <div style="padding-top: 100px; padding-left: 100px;">
       <Dropdown position="left">
         <Button weight="primary">left</Button>
         <template #dropdown>
@@ -45,9 +38,6 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
           <DropdownItem>item1</DropdownItem>
         </template>
       </Dropdown>
-    </div>
-    <div style="flex: 1"></div>
-    <div style="flex: 1">
       <Dropdown position="right">
         <Button weight="primary">right</Button>
         <template #dropdown>
@@ -56,9 +46,7 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
         </template>
       </Dropdown>
     </div>
-  </div>
-  <div style="padding-top: 100px; text-align: center; display: flex">
-    <div style="flex: 1">
+    <div style="padding-top: 100px; padding-left: 100px;">
       <Dropdown position="bottom-left">
         <Button weight="primary">bottom-left</Button>
         <template #dropdown>
@@ -66,8 +54,6 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
           <DropdownItem>item1</DropdownItem>
         </template>
       </Dropdown>
-    </div>
-    <div style="flex: 1">
       <Dropdown position="bottom">
         <Button weight="primary">bottom</Button>
         <template #dropdown>
@@ -75,8 +61,6 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
           <DropdownItem>item1</DropdownItem>
         </template>
       </Dropdown>
-    </div>
-    <div style="flex: 1">
       <Dropdown position="bottom-right">
         <Button weight="primary">bottom-right</Button>
         <template #dropdown>
@@ -85,5 +69,4 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
         </template>
       </Dropdown>
     </div>
-  </div>
 </template>

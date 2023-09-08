@@ -7,8 +7,8 @@ import MenuDemoData from './components/menu/demo/MenuDemoData.vue'
 <template>
   <DropdownDemoPosition></DropdownDemoPosition>
   <MenuDemoElement></MenuDemoElement>
-  <hr />
-  <MenuDemoData></MenuDemoData>
+  <!-- <hr /> -->
+  <!-- <MenuDemoData></MenuDemoData> -->
 </template>
 
 <style>
