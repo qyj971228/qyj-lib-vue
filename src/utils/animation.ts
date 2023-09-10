@@ -1,22 +1,22 @@
 import { watch, type Ref, computed } from 'vue'
 import type { Position } from '../components/dropdown/type/props'
 
-export function ani_dropdown(domRef: Ref<HTMLElement | null>, position: Ref<Position> | Ref<undefined>) {
+export function ani_dropdown(domRef: Ref<HTMLElement | null>, position: string) {
   const isTop = computed(() => {
-    if (!position.value) return false
-    return position.value.split('-').includes('top')
+    if (!position) return false
+    return position.split('-').includes('top')
   })
   const isBottom = computed(() => {
-    if (!position.value) return false
-    return position.value.split('-').includes('bottom')
+    if (!position) return false
+    return position.split('-').includes('bottom')
   })
   const isRight = computed(() => {
-    if (!position.value) return false
-    return position.value.split('-').includes('right')
+    if (!position) return false
+    return position.split('-').includes('right')
   })
   const isLeft = computed(() => {
-    if (!position.value) return false
-    return position.value.split('-').includes('left')
+    if (!position) return false
+    return position.split('-').includes('left')
   })
 
   let arr: any[] = []

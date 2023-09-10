@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, useAttrs, nextTick, toRef, computed, onBeforeUnmount } from 'vue'
+import { ref, useAttrs, nextTick, toRef, computed, onBeforeUnmount, onMounted, toRefs } from 'vue'
 import type { DropdownProps } from './type/props'
 import DropdownClass from './class/DropdownClass'
 import { useClassName, useOppsite, useDropdownPosition } from '../../hooks/index'
@@ -12,23 +12,28 @@ defineOptions({ inheritAttrs: false })
 const attrs = useAttrs()
 
 const props = defineProps<DropdownProps>()
-const position = toRef(props.position)
-const data = toRef(props.data)
-console.log(data.value)
-const close = toRef(props.close ?? 'hover')
-const open = toRef(props.open ?? 'hover')
+
+const { position, data, close, open } = toRefs(props)
 
 const triggerRef = ref<HTMLElement | null>(null)
 const dropdownRef = ref<HTMLElement | null>(null)
 
-const [isRender, , render] = useOppsite<boolean>([true, false], false)
-const [className] = useClassName<DropdownProps, DropdownClass>(props, () => new DropdownClass(props))
-const [updatePosition] = useDropdownPosition(position, triggerRef, dropdownRef)
+const triggerDisplay = ref()
+onMounted(() => {
+  triggerDisplay.value = window.getComputedStyle((triggerRef.value as Element).children[0]).display
+})
 
+const [className] = useClassName<DropdownProps, DropdownClass>(props, () => new DropdownClass(props))
+
+const [isRender, , render] = useOppsite<boolean>([true, false], false)
 const visibility = ref<'visible' | 'hidden'>('visible')
-const [aniIn, aniOut] = ani_dropdown(dropdownRef, position)
+
+let [updatePosition] = useDropdownPosition(position, triggerRef, dropdownRef)
+const [aniIn, aniOut] = ani_dropdown(dropdownRef, position?.value ?? 'bottom')
+
 function show() {
   if (dropdownRef.value !== null) {
+    updatePosition()
     visibility.value = 'visible'
     aniIn()
   }
@@ -47,8 +52,8 @@ onBeforeUnmount(() => {
   clearTimeout(hideTimer)
 })
 
-const openHover = computed(() => open.value == 'hover')
-const closeHover = computed(() => close.value == 'hover')
+const openHover = computed(() => (open?.value ?? 'hover') == 'hover')
+const closeHover = computed(() => (close?.value ?? 'hover') == 'hover')
 const hidden = computed(() => visibility.value == 'hidden')
 const visible = computed(() => visibility.value == 'visible')
 
@@ -95,15 +100,16 @@ function dropdownMouseleave() {
 </script>
 
 <template>
-  <div
+  <span
     v-bind="attrs"
     ref="triggerRef"
     class="qyj-dropdown-trigger"
     @mouseenter="triggerMouseenter"
     @mouseleave="triggerMouseleave"
+    :style="{ display: triggerDisplay }"
   >
     <slot>Dropdown</slot>
-  </div>
+  </span>
   <Teleport to="body">
     <div
       v-if="isRender"

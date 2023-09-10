@@ -13,3 +13,12 @@ export const arrReplace = (arr: any[], find: any, replace: any) => {
     arr.splice(index, 1, replace)
   }
 }
+
+export class Array {
+  static Delete(arr: any[], find: any) {
+    arrDel(arr, find)
+  }
+  static Replace(arr: any[], find: any, replace: any) {
+    arrReplace(arr, find, replace)
+  }
+}

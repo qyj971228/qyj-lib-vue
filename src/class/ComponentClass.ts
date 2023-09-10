@@ -1,4 +1,4 @@
-import { arrDel, arrReplace } from '../utils/array'
+import { Array } from '../utils/index'
 
 class Component<T extends Object> {
   constructor(prefix: string, props: T, booleanProp?: string[]) {
@@ -28,12 +28,12 @@ class Component<T extends Object> {
 
   // 移除class
   public removeClass(className?: string): void {
-    arrDel(this.suffixs, className)
+    Array.Delete(this.suffixs, className)
   }
 
   // 替换class
   public replaceClass(replace: string, replacedBy: string): void {
-    arrReplace(this.suffixs, replace, replacedBy)
+    Array.Replace(this.suffixs, replace, replacedBy)
   }
 
   // 设置str型prop

@@ -8,6 +8,13 @@ import DropdownItem from '../../dropdown-item/index.vue'
 
 <template>
   <div>
+    <Dropdown position="bottom">
+      <p>123</p>
+      <template #dropdown>
+        <DropdownItem>1-1</DropdownItem>
+        <DropdownItem>1-2</DropdownItem>
+      </template>
+    </Dropdown>
     <Menu>
       <MenuGroup>
         <MenuItem>1</MenuItem>
