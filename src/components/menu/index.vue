@@ -8,7 +8,6 @@ export type Node = {
   level?: number
   childNodeCount?: number
   collapse?: boolean
-  show?: boolean
 }
 
 export type MenuProps = {
@@ -19,24 +18,15 @@ export type MenuProps = {
 const props = defineProps<MenuProps>()
 
 const data = toRef(props.data)
-data.value = initCollapse(data.value)
-data.value = initLevel(data.value)
-data.value = initShow(data.value)
 const onSelect = props.onSelect as Function
 provide('onSelect', onSelect)
+
+data.value = initCollapse(data.value)
+data.value = initLevel(data.value)
 
 const computedData = computed(() => {
   return countNodes(data.value)
 })
-
-function initShow(arr: Node[]) {
-  const res = arr.map((el) => {
-    el.show = true
-    if (el.children) initShow(el.children)
-    return el
-  })
-  return res
-}
 
 function initCollapse(arr: Node[]) {
   const res = arr.map((el) => {
@@ -72,7 +62,7 @@ function countNodes(arr: Node[]) {
 function countChildNode(node: Node) {
   let sum = 1
   node.children?.forEach((el) => {
-    if (!el.collapse) sum += ( countChildNode(el))
+    if (!el.collapse) sum += countChildNode(el)
     else if (el.collapse) sum += 1
   })
   return sum

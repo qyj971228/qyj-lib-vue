@@ -20,9 +20,6 @@ const onSelect = inject('onSelect') as Function
 function onMenuItemClick(sub: any, subIndex: any) {
   sub.collapse = !sub.collapse
   onSelect(sub, subIndex)
-  setTimeout(() => {
-    sub.show = !sub.show
-  }, 100)
 }
 </script>
 
@@ -36,7 +33,7 @@ function onMenuItemClick(sub: any, subIndex: any) {
   >
     {{ sub.name }}
     <MenuSub
-      v-if="sub.children && sub.show"
+      v-if="sub.children"
       :data="sub.children"
     ></MenuSub>
   </li>
