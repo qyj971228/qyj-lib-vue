@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toRef } from 'vue'
-import MenuGroup from '../menu-group/index.vue'
+import MenuSub from '../menu-sub/index.vue'
 import MenuItem from '../menu-item/index.vue'
 
 type MenuProps = {
@@ -22,18 +22,18 @@ const data = toRef(props.data)
     v-else
     class="qyj-menu"
   >
-    <MenuGroup
-      v-for="(group, groupIndex) in data"
-      :key="groupIndex"
+    <MenuSub
+      v-for="(sub, subIndex) in data"
+      :key="subIndex"
     >
       <MenuItem
-        v-for="(item, itemIndex) in group"
+        v-for="(item, itemIndex) in sub"
         :key="itemIndex"
         @click="item.onclick(item.name, itemIndex)"
       >
         {{ item.name }}
       </MenuItem>
-    </MenuGroup>
+    </MenuSub>
   </div>
 </template>
 

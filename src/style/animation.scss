@@ -8,7 +8,7 @@
   100% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1) translateY(-2px);
+    transform: scale(1, 1) translateY(4px);
   }
 }
 
@@ -16,7 +16,7 @@
   0% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1) translateY(-2px);
+    transform: scale(1, 1) translateY(4px);
   }
   100% {
     opacity: 0;
@@ -36,7 +36,7 @@
   100% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1) translateY(2px);
+    transform: scale(1, 1) translateY(-4px);
   }
 }
 
@@ -44,7 +44,7 @@
   0% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1) translateY(2px);
+    transform: scale(1, 1) translateY(-4px);
   }
   100% {
     opacity: 0;
@@ -63,7 +63,7 @@
   100% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1) translateX(-2px);
+    transform: scale(1, 1) translateX(4px);
   }
 }
 
@@ -71,7 +71,7 @@
   0% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1) translateX(-2px);
+    transform: scale(1, 1) translateX(4px);
   }
   100% {
     opacity: 0;
@@ -90,7 +90,7 @@
   100% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1) translateX(2px);
+    transform: scale(1, 1) translateX(-4px);
   }
 }
 
@@ -98,7 +98,7 @@
   0% {
     opacity: 1;
     visibility: visible;
-    transform: scale(1, 1) translateX(2px);
+    transform: scale(1, 1) translateX(-4px);
   }
   100% {
     opacity: 0;

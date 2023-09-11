@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 
-const menuGroup = ref<HTMLUListElement>()
+const menuSub = ref<HTMLUListElement>()
 onMounted(() => {
   initLength()
 })
 function initLength() {
-  if (!menuGroup.value) return
-  menuGroup.value.style.height = menuGroup.value.clientHeight + 'px'
+  if (!menuSub.value) return
+  menuSub.value.style.height = menuSub.value.clientHeight + 'px'
 }
 </script>
 
 <template>
   <ul
-    class="qyj-menu-group"
-    ref="menuGroup"
+    class="qyj-menu-sub"
+    ref="menuSub"
   >
     <slot></slot>
   </ul>

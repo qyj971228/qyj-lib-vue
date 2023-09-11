@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, useAttrs, nextTick, toRef, computed, onBeforeUnmount, onMounted, toRefs } from 'vue'
+import { ref, useAttrs, nextTick, computed, onBeforeUnmount, onMounted, toRefs } from 'vue'
 import type { DropdownProps } from './type/props'
 import DropdownClass from './class/DropdownClass'
 import { useClassName, useOppsite, useDropdownPosition } from '../../hooks/index'

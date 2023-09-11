@@ -9,8 +9,8 @@
   cursor: pointer;
   transition: all 0.2s;
   outline: 0px solid #fff;
-  box-shadow: var(--app-box-shadow);
-  padding: 4px 12px;
+  box-shadow: var(--app-box-shadow-1);
+  padding: 6px 14px;
   line-height: 1;
 }
 

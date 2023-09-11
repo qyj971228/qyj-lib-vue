@@ -1,5 +1,4 @@
 import { watch, type Ref, computed } from 'vue'
-import type { Position } from '../components/dropdown/type/props'
 
 export function ani_dropdown(domRef: Ref<HTMLElement | null>, position: string) {
   const isTop = computed(() => {

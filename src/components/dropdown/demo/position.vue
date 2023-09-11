@@ -4,68 +4,67 @@ import { Button, Dropdown, DropdownItem } from '../../../lib'
 </script>
 
 <template>
-  <div style="padding-top: 100px; padding-left: 100px;">
+  <div style="padding-top: 100px; padding-left: 150px;">
       <Dropdown
         position="top-left"
         :data="[
-          { name: 'item1', onclick: () => {} },
+          { name: 'position-item', onclick: () => {} },
           { name: 'item2', onclick: () => {} }
         ]"
       >
-        <Button weight="primary">top-left</Button>
-        <Button weight="primary">top-left</Button>
+        <Button size="l">top-left</Button>
       </Dropdown>
       <Dropdown position="top">
-        <Button weight="primary">top</Button>
+        <Button>top</Button>
         <template #dropdown>
-          <DropdownItem>item1</DropdownItem>
-          <DropdownItem>item1</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
         </template>
       </Dropdown>
       <Dropdown position="top-right">
-        <Button weight="primary">top-right</Button>
+        <Button size="s">top-right</Button>
         <template #dropdown>
-          <DropdownItem>item1</DropdownItem>
-          <DropdownItem>item1</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
         </template>
       </Dropdown>
     </div>
-    <div style="padding-top: 100px; padding-left: 100px;">
+    <div style="padding-top: 100px; padding-left: 150px;">
       <Dropdown position="left">
-        <Button weight="primary">left</Button>
+        <Button>left</Button>
         <template #dropdown>
-          <DropdownItem>item1</DropdownItem>
-          <DropdownItem>item1</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
         </template>
       </Dropdown>
       <Dropdown position="right">
-        <Button weight="primary">right</Button>
+        <Button>right</Button>
         <template #dropdown>
-          <DropdownItem>item1</DropdownItem>
-          <DropdownItem>item1</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
         </template>
       </Dropdown>
     </div>
-    <div style="padding-top: 100px; padding-left: 100px;">
+    <div style="padding-top: 100px; padding-left: 150px;">
       <Dropdown position="bottom-left">
         <Button weight="primary">bottom-left</Button>
         <template #dropdown>
-          <DropdownItem>item1</DropdownItem>
-          <DropdownItem>item1</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
         </template>
       </Dropdown>
       <Dropdown position="bottom">
-        <Button weight="primary">bottom</Button>
+        <Button weight="primary" kind="warn">bottom</Button>
         <template #dropdown>
-          <DropdownItem>item1</DropdownItem>
-          <DropdownItem>item1</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
         </template>
       </Dropdown>
       <Dropdown position="bottom-right">
-        <Button weight="primary">bottom-right</Button>
+        <Button weight="primary" kind="error">bottom-right</Button>
         <template #dropdown>
-          <DropdownItem>item1</DropdownItem>
-          <DropdownItem>item1</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
+          <DropdownItem>position-item</DropdownItem>
         </template>
       </Dropdown>
     </div>

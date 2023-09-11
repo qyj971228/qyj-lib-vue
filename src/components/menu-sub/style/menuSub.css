@@ -1,4 +1,4 @@
-.qyj-menu-group {
+.qyj-menu-sub {
   line-height: 30px;
   list-style: none;
   padding: 0;
@@ -7,10 +7,10 @@
   transition: height 0.2s;
 }
 
-.qyj-menu-group > .qyj-menu-item:first-child {
+.qyj-menu-sub > .qyj-menu-item:first-child {
   background-color: #eee;
 }
 
-.qyj-menu-group > .qyj-menu-item:first-child:hover {
+.qyj-menu-sub > .qyj-menu-item:first-child:hover {
   background-color: #ddd;
 }

@@ -2,13 +2,15 @@
 import DropdownDemoPosition from './components/dropdown/demo/position.vue'
 import MenuDemoElement from './components/menu/demo/MenuDemoElement.vue'
 import MenuDemoData from './components/menu/demo/MenuDemoData.vue'
+// import MenuDemoDropdown from './components/menu/demo/MenuDemoDropdown.vue';
 </script>
 
 <template>
-  <DropdownDemoPosition></DropdownDemoPosition>
+  <!-- <DropdownDemoPosition></DropdownDemoPosition> -->
   <MenuDemoElement></MenuDemoElement>
   <!-- <hr /> -->
-  <!-- <MenuDemoData></MenuDemoData> -->
+  <MenuDemoData></MenuDemoData>
+  <!-- <MenuDemoDropdown></MenuDemoDropdown> -->
 </template>
 
 <style>

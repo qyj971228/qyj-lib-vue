@@ -10,12 +10,12 @@
   --app-color-primary-light-65: hsl(215, 100%, 65%);
   --app-color-primary-light-97: hsl(215, 100%, 97%);
 
-  --app-color-warn: hsl(43, 86%, 50%);
+  --app-color-warn: hsl(43, 100%, 54%);
   --app-color-warn-light-60: hsl(43, 86%, 60%);
   --app-color-warn-light-65: hsl(43, 86%, 65%);
   --app-color-warn-light-97: hsl(43, 86%, 97%);
 
-  --app-color-error: hsl(0, 88%, 50%);
+  --app-color-error: #ff4d4f;
   --app-color-error-light-60: hsl(0, 88%, 60%);
   --app-color-error-light-65: hsl(0, 88%, 65%);
   --app-color-error-light-97: hsl(0, 88%, 97%);
@@ -26,18 +26,19 @@
 
   // font
   --app-font-size: 16px;
-  --app-font-color: hsl(0, 0%, 25%);
+  --app-font-color: rgba(0, 0, 0, 0.88);
 
   // background
   --app-background-color: #fff;
 
   // border
-  --app-border-color: hsl(0, 0%, 50%);
+  --app-border-color: #d9d9d9;
   --app-border-width: 1px;
   --app-border-style: solid;
   --app-border-radius: 6px;
   --app-border-radius-round: 100px;
 
   // box-shadow
-  --app-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  --app-box-shadow-1: 0 2px 0 rgba(0, 0, 0, 0.02);
+  --app-box-shadow-2: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 }

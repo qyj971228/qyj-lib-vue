@@ -2,24 +2,24 @@
 import { ref } from 'vue'
 
 const menuItem = ref<HTMLLIElement>()
-let menuGroupElement: HTMLUListElement
+let subMenuElement: HTMLUListElement
 
 function onMenuItemClick() {
   if (!menuItem.value) return
   if (menuItem.value?.previousElementSibling) return
-  getMenuGroup()
-  setMenuGroupHeight()
+  getSubMenu()
+  setSubMenuHeight()
 }
 
-function getMenuGroup() {
+function getSubMenu() {
   const parentElement = menuItem.value?.parentElement
   if (!parentElement) return
-  menuGroupElement = parentElement as HTMLUListElement
+  subMenuElement = parentElement as HTMLUListElement
 }
 
-function setMenuGroupHeight() {
+function setSubMenuHeight() {
   const height = menuItem.value?.clientHeight as number
-  const parentHeight = menuGroupElement.clientHeight
+  const parentHeight = subMenuElement.clientHeight
   let siblingCount = 1
   if (parentHeight == height) {
     let next = menuItem.value as Element
@@ -28,7 +28,7 @@ function setMenuGroupHeight() {
       siblingCount++
     }
   }
-  menuGroupElement.style.height = height * siblingCount + 'px'
+  subMenuElement.style.height = height * siblingCount + 'px'
 }
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="dropdown-item">
+  <div class="qyj-dropdown-item">
     <slot></slot>
   </div>
 </template>
