@@ -118,16 +118,10 @@ function dropdownMouseleave() {
       @mouseenter="dropdownMouseenter"
       @mouseleave="dropdownMouseleave"
     >
-      <slot
-        v-if="!data?.length"
-        name="dropdown"
-      >
-      </slot>
       <DropdownItem
-        v-else
         v-for="(item, index) in data"
         :key="index"
-        @click="item.onclick"
+        @click="$emit('onSelect', item, index)"
       >
         {{ item.name }}
       </DropdownItem>

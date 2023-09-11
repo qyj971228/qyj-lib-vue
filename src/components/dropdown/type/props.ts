@@ -9,11 +9,13 @@ type Position = (typeof POSITION)[number]
 type Close = (typeof CLOSE)[number]
 type Open = (typeof OPEN)[number]
 
+type Item = { name: string }
+
 type DropdownProps = Partial<{
   position: Position
   close: Close
   open: Open
-  data: { name: string, onclick: Function }[]
+  data: Item[]
 }>
 
 export type { DropdownProps, Position }

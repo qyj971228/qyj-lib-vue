@@ -1,6 +1,8 @@
 .qyj-menu {
   width: 300px;
+  height: fit-content;
   display: inline-block;
+  padding: 0;
   overflow: hidden;
   border: 1px solid #eee;
 }

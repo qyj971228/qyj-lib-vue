@@ -1,23 +1,37 @@
-<script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
-const menuSub = ref<HTMLUListElement>()
-onMounted(() => {
-  initLength()
-})
-function initLength() {
-  if (!menuSub.value) return
-  menuSub.value.style.height = menuSub.value.clientHeight + 'px'
+<script lang="ts">
+export default {
+  name: 'MenuSub'
 }
+</script>
+<script setup lang="ts">
+import { inject, toRef } from 'vue'
+import type { List } from '../menu/index.vue'
+
+type SubMenuProps = {
+  data: List[]
+}
+
+const props = defineProps<SubMenuProps>()
+
+const data = toRef(props.data)
+
+const onSelect = inject('onSelect') as Function
+
 </script>
 
 <template>
-  <ul
-    class="qyj-menu-sub"
-    ref="menuSub"
+  <li
+    :class="sub.level == 1 ? 'qyj-menu-sub' : 'qyj-menu-item'"
+    v-for="(sub, subIndex) in data"
+    :key="subIndex"
+    @click.stop="onSelect(sub, subIndex)"
   >
-    <slot></slot>
-  </ul>
+    {{ sub.name }}
+    <MenuSub
+      v-if="sub.children"
+      :data="sub.children"
+    ></MenuSub>
+  </li>
 </template>
 
 <style>

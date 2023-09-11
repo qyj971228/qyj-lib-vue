@@ -7,9 +7,11 @@
   transition: height 0.2s;
 }
 
-.qyj-menu-sub > .qyj-menu-item:first-child {
-  background-color: #eee;
-  &:hover {
-    background-color: #ddd;
-  }
+.qyj-menu-item {
+  line-height: 30px;
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+  overflow: hidden;
+  transition: height 0.2s;
 }
