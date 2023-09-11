@@ -2,7 +2,7 @@
 import Menu from '../../menu/index.vue'
 
 function onSelect(item: any, index: any) {
-  console.log(item, index)
+  console.log(item.childNodeCount)
 }
 </script>
 

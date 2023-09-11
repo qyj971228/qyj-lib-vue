@@ -4,7 +4,7 @@ import MenuDemoData from './components/menu/demo/MenuDemoData.vue'
 </script>
 
 <template>
-  <DropdownDemoPosition></DropdownDemoPosition>
+  <!-- <DropdownDemoPosition></DropdownDemoPosition> -->
   <hr />
   <MenuDemoData></MenuDemoData>
 </template>
