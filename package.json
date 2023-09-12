@@ -29,10 +29,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "dependencies": {
-    "vue": "^3.3.4"
-  },
   "devDependencies": {
+    "vue": "^3.3.4",
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
     "@rushstack/eslint-patch": "^1.2.0",
