@@ -24,13 +24,13 @@
     "vitest:run": "vitest run",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p --composite false",
-    "eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .eslintignore",
-    "prettier-format": "prettier --write .",
+    "eslint": "eslint . --ext .vue,.js,.jsx,.ts,.tsx--fix --ignore-path .eslintignore",
+    "prettier": "prettier --write . --ignore-path .prettierignore",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "vue": "^3.3.4",
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
     "@rushstack/eslint-patch": "^1.2.0",
@@ -58,6 +58,7 @@
     "husky": "^8.0.3",
     "jsdom": "^21.1.0",
     "less": "^4.2.0",
+    "lint-staged": "^14.0.1",
     "mitt": "^3.0.1",
     "node-sass": "^7.0.1",
     "npm-run-all": "^4.1.5",
@@ -76,6 +77,7 @@
     "vite-plugin-dts": "^3.4.0",
     "vite-plugin-style-import": "^2.0.0",
     "vitest": "^0.34.1",
+    "vue": "^3.3.4",
     "vue-tsc": "^1.2.0"
   }
 }
