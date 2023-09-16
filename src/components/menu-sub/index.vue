@@ -29,7 +29,9 @@ function onMenuItemClick(sub: any, subIndex: any) {
     v-for="(sub, subIndex) in data"
     :key="subIndex"
     @click.stop="onMenuItemClick(sub, subIndex)"
-    :style="{ height: sub.collapse ? '30px' : (sub.childNodeCount ?? 1) * 30 + 'px' }"
+    :style="{
+      height: sub.collapse ? '30px' : (sub.childNodeCount ?? 1) * 30 + 'px'
+    }"
   >
     {{ sub.name }}
     <MenuSub

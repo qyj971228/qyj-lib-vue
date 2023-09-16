@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   overflow: hidden;
-  transition: height 0.2s;
+  transition: height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .qyj-menu-item {
@@ -13,5 +13,5 @@
   padding-left: 20px;
   margin: 0;
   overflow: hidden;
-  transition: height 0.2s;
+  transition: height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
