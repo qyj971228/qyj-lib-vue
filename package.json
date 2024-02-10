@@ -1,6 +1,6 @@
 {
   "name": "qyj-lib-vue",
-  "version": "0.1.21",
+  "version": "0.1.25",
   "private": false,
   "main": "dist/lib/index.js",
   "module": "dist/lib/index.js",

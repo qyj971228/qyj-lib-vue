@@ -17,7 +17,9 @@ const g = ["onClick"], j = {
         class: k(e.level == 1 ? "qyj-menu-sub" : "qyj-menu-item"),
         key: l,
         onClick: C((N) => p(e, l), ["stop"]),
-        style: y({ height: e.collapse ? "30px" : (e.childNodeCount ?? 1) * 30 + "px" })
+        style: y({
+          height: e.collapse ? "30px" : (e.childNodeCount ?? 1) * 30 + "px"
+        })
       }, [
         S(M(e.name) + " ", 1),
         e.children ? (n(), v(s, {

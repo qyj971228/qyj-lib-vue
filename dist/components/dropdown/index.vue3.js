@@ -1,4 +1,5 @@
-const e = "";
+import o from "./index.vue.js";
+import "./index.vue2.js";
 export {
-  e as default
+  o as default
 };

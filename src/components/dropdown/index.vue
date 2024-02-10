@@ -129,6 +129,6 @@ function dropdownMouseleave() {
   </Teleport>
 </template>
 
-<style scoped>
+<style>
 @import url('./index.css');
 </style>
