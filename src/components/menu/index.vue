@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { provide, ref, toRef } from 'vue'
+import { computed, provide, toRef } from 'vue'
 import MenuSub from '../menu-sub/index.vue'
 
-export type List = {
+export type Node = {
   name: string
-  children?: List[]
+  children?: Node[]
   level?: number
-  itemLength?: number
+  childNodeCount?: number
+  collapse?: boolean
 }
 
 export type MenuProps = {
-  data: List[]
+  data: Node[]
   onSelect: Function
 }
 
@@ -20,23 +21,52 @@ const data = toRef(props.data)
 const onSelect = props.onSelect as Function
 provide('onSelect', onSelect)
 
-const computedData = ref()
-computedData.value = setLevel(data.value, 0)
-// setLength(computedData.value)
-// TODO: 获取树中节点的子节点数并记录
+data.value = initCollapse(data.value)
+data.value = initLevel(data.value)
 
-console.log(computedData.value)
+const computedData = computed(() => {
+  return countNodes(data.value)
+})
 
-function setLevel(arr: List[], level: number) {
-  level++
-  arr.forEach((el) => {
-    el.level = level
-    if (el.children) setLevel(el.children, level)
+function initCollapse(arr: Node[]) {
+  const res = arr.map((el) => {
+    el.collapse = false
+    if (el.children) initCollapse(el.children)
+    return el
   })
-  return arr
+  return res
 }
 
+function initLevel(arr: Node[], level: number = 0) {
+  level++
+  const res = arr.map((el) => {
+    el.level = level
+    if (el.children) initLevel(el.children, level)
+    return el
+  })
+  return res
+}
 
+function countNodes(arr: Node[]) {
+  const res = arr.map((el: Node) => {
+    el.childNodeCount = countChildNode(el)
+    if (el.children) {
+      countNodes(el.children)
+    }
+    return el
+  })
+  console.log(res)
+  return res
+}
+
+function countChildNode(node: Node) {
+  let sum = 1
+  node.children?.forEach((el) => {
+    if (!el.collapse) sum += countChildNode(el)
+    else if (el.collapse) sum += 1
+  })
+  return sum
+}
 </script>
 
 <template>

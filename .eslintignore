@@ -9,3 +9,6 @@ dist
 storybook-static
 
 script
+
+*.md
+*.d.ts

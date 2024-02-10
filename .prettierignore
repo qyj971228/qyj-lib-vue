@@ -9,3 +9,6 @@ node_modules
 coverage
 stories
 storybook-static
+*.md
+*.d.ts
+src/**/index.css

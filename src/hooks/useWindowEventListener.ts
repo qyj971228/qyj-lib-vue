@@ -21,8 +21,5 @@ export function useWindowEventListener(event: string, callback: Function) {
     })
   }
 
-  return [
-    add,
-    clear
-  ]
+  return [add, clear]
 }

@@ -14,12 +14,10 @@
   padding: 6px 14px;
   line-height: 1;
 }
-
 .qyj-btn:hover {
   color: var(--app-color-primary-light-60);
   border-color: var(--app-color-primary-light-65);
 }
-
 .qyj-btn:focus {
   color: var(--app-color-primary-light-60);
   border-color: var(--app-color-primary-light-65);
@@ -29,19 +27,16 @@
   color: var(--app-color-primary-light-60);
   border-color: var(--app-color-primary-light-65);
 }
-
 .qyj-btn-normal:hover {
   color: var(--app-color-primary-light-60);
   border-color: var(--app-color-primary-light-65);
   background-color: var(--app-color-primary-light-97);
 }
-
 .qyj-btn-normal:focus {
   color: var(--app-color-primary);
   border-color: var(--app-color-primary);
   background-color: var(--app-color-primary-light-97);
 }
-
 .qyj-btn-normal:active {
   color: var(--app-color-primary);
   border-color: var(--app-color-primary);
@@ -52,19 +47,16 @@
   color: var(--app-color-warn-light-60);
   border-color: var(--app-color-warn-light-65);
 }
-
 .qyj-btn-warn:hover {
   color: var(--app-color-warn-light-60);
   border-color: var(--app-color-warn-light-65);
   background-color: var(--app-color-warn-light-97);
 }
-
 .qyj-btn-warn:focus {
   color: var(--app-color-warn);
   border-color: var(--app-color-warn);
   background-color: var(--app-color-warn-light-97);
 }
-
 .qyj-btn-warn:active {
   color: var(--app-color-warn);
   border-color: var(--app-color-warn);
@@ -75,19 +67,16 @@
   color: var(--app-color-error-light-60);
   border-color: var(--app-color-error-light-65);
 }
-
 .qyj-btn-error:hover {
   color: var(--app-color-error-light-60);
   border-color: var(--app-color-error-light-65);
   background-color: var(--app-color-error-light-97);
 }
-
 .qyj-btn-error:focus {
   color: var(--app-color-error);
   border-color: var(--app-color-error);
   background-color: var(--app-color-error-light-97);
 }
-
 .qyj-btn-error:active {
   color: var(--app-color-error);
   border-color: var(--app-color-error);
@@ -99,20 +88,17 @@
   border-color: var(--app-color-primary);
   background-color: var(--app-color-primary);
 }
-
 .qyj-btn-primary-normal:hover {
   color: #fff;
   border-color: var(--app-color-primary-light-60);
   background-color: var(--app-color-primary-light-60);
 }
-
 .qyj-btn-primary-normal:focus {
   color: #fff;
   border-color: var(--app-color-primary);
   background-color: var(--app-color-primary);
   outline: 2px solid var(--app-color-primary-light-65);
 }
-
 .qyj-btn-primary-normal:active {
   color: #fff;
   border-color: var(--app-color-primary);
@@ -125,20 +111,17 @@
   border-color: var(--app-color-warn);
   background-color: var(--app-color-warn);
 }
-
 .qyj-btn-primary-warn:hover {
   color: #fff;
   border-color: var(--app-color-warn-light-60);
   background-color: var(--app-color-warn-light-60);
 }
-
 .qyj-btn-primary-warn:focus {
   color: #fff;
   border-color: var(--app-color-warn);
   background-color: var(--app-color-warn);
   outline: 2px solid var(--app-color-warn-light-65);
 }
-
 .qyj-btn-primary-warn:active {
   color: #fff;
   border-color: var(--app-color-warn);
@@ -151,20 +134,17 @@
   border-color: var(--app-color-error);
   background-color: var(--app-color-error);
 }
-
 .qyj-btn-primary-error:hover {
   color: #fff;
   border-color: var(--app-color-error-light-60);
   background-color: var(--app-color-error-light-60);
 }
-
 .qyj-btn-primary-error:focus {
   color: #fff;
   border-color: var(--app-color-error);
   background-color: var(--app-color-error);
   outline: 2px solid var(--app-color-error-light-65);
 }
-
 .qyj-btn-primary-error:active {
   color: #fff;
   border-color: var(--app-color-error);
@@ -178,21 +158,18 @@
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-text-normal:hover {
   color: var(--app-color-primary-light-60);
   border-color: transparent;
   background-color: var(--app-color-primary-light-97);
   box-shadow: none;
 }
-
 .qyj-btn-text-normal:focus {
   color: var(--app-color-primary);
   border-color: transparent;
   background-color: var(--app-color-primary-light-97);
   box-shadow: none;
 }
-
 .qyj-btn-text-normal:active {
   color: var(--app-color-primary);
   border-color: transparent;
@@ -206,21 +183,18 @@
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-text-warn:hover {
   color: var(--app-color-warn-light-60);
   border-color: transparent;
   background-color: var(--app-color-warn-light-97);
   box-shadow: none;
 }
-
 .qyj-btn-text-warn:focus {
   color: var(--app-color-warn);
   border-color: transparent;
   background-color: var(--app-color-warn-light-97);
   box-shadow: none;
 }
-
 .qyj-btn-text-warn:active {
   color: var(--app-color-warn);
   border-color: transparent;
@@ -234,21 +208,18 @@
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-text-error:hover {
   color: var(--app-color-error-light-60);
   border-color: transparent;
   background-color: var(--app-color-error-light-97);
   box-shadow: none;
 }
-
 .qyj-btn-text-error:focus {
   color: var(--app-color-error);
   border-color: transparent;
   background-color: var(--app-color-error-light-97);
   box-shadow: none;
 }
-
 .qyj-btn-text-error:active {
   color: var(--app-color-error);
   border-color: transparent;
@@ -261,21 +232,18 @@
   border-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-normal:hover {
   color: var(--app-color-primary-light-60);
   border-color: transparent;
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-normal:focus {
   color: var(--app-color-primary);
   border-color: transparent;
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-normal:active {
   color: var(--app-color-primary);
   border-color: transparent;
@@ -288,21 +256,18 @@
   border-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-warn:hover {
   color: var(--app-color-warn-light-60);
   border-color: transparent;
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-warn:focus {
   color: var(--app-color-warn);
   border-color: transparent;
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-warn:active {
   color: var(--app-color-warn);
   border-color: transparent;
@@ -315,21 +280,18 @@
   border-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-error:hover {
   color: var(--app-color-error-light-60);
   border-color: transparent;
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-error:focus {
   color: var(--app-color-error);
   border-color: transparent;
   background-color: transparent;
   box-shadow: none;
 }
-
 .qyj-btn-link-error:active {
   color: var(--app-color-error);
   border-color: transparent;

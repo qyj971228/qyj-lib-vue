@@ -7,5 +7,5 @@
 </template>
 
 <style scoped>
-@import url('./style/dropdownItem.css');
+@import url('./index.css');
 </style>
