@@ -1,3 +1,4 @@
+npm https://www.npmjs.com/package/qyj-lib-vue
 ```
 <script setup lang="ts">
 import { Button, Dropdown, Menu } from 'qyj-lib-vue/dist/lib'
